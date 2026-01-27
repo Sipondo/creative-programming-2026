@@ -7,4 +7,4 @@ Content will be released progressively as the course advances. Lecture slides ar
 
 # Lectures
 
-- Lecture 1 (Hello World!): [slides](https://rawcdn.githack.com/Sipondo/creative-programming-2026/0060f7b881fd6e8b94e25843dfc21d8e0e1c27ce/lecture_1/lecture_1.html) [pdf backup](/lecture_1/lecture_1.pdf) [code](/lecture_1/code)
+- Lecture 1 (Hello World!): [slides](https://rawcdn.githack.com/Sipondo/creative-programming-2026/0efd0fcedaf147abab9c2d4528d9279044adcfea/lecture_1/lecture_1.html) [pdf backup](/lecture_1/lecture_1.pdf) [code](/lecture_1/code)
