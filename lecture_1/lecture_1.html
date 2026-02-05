@@ -1808,13 +1808,13 @@ First slide opens with what we will discuss and make this week.
 
       <button id="toggle-notes-btn" type="button" aria-controls="notes-panel" aria-expanded="false">Narration</button>
 
-      </div>
+    </div>
 
     
 
     <div id="notes-panel" aria-live="polite" aria-label="Narration" hidden="">
 
-      <div class="notes-header">Narration</div>
+      <div class="notes-header">Narrative Notes</div>
 
       <div id="notes-content"></div>
 
@@ -1824,207 +1824,207 @@ First slide opens with what we will discuss and make this week.
 
     <script>
 
-    (function(){
+      (function () {
 
-      function setRevealViewportHeight(px){
+        function setRevealViewportHeight(px) {
 
-        var h = (typeof px === 'number') ? px : 0;
+          var h = (typeof px === 'number') ? px : 0;
 
-        document.documentElement.style.setProperty('--quarto-notes-height', h + 'px');
+          document.documentElement.style.setProperty('--quarto-notes-height', h + 'px');
 
-      }
-
-    
-
-      function getNotesHTML(slide){
-
-        if (!slide) return '';
-
-        // Reveal transforms ::: {.notes} to <aside class="notes"> or uses data-notes
-
-        var aside = slide.querySelector('aside.notes');
-
-        if (aside) return aside.innerHTML || aside.textContent || '';
-
-        var dataNotes = slide.getAttribute('data-notes');
-
-        return dataNotes || '';
-
-      }
+        }
 
     
 
-      function updateNotes(){
+        function getNotesHTML(slide) {
 
-        try {
+          if (!slide) return '';
 
-          var content = document.getElementById('notes-content');
+          // Reveal transforms ::: {.notes} to <aside class="notes"> or uses data-notes
+
+          var aside = slide.querySelector('aside.notes');
+
+          if (aside) return aside.innerHTML || aside.textContent || '';
+
+          var dataNotes = slide.getAttribute('data-notes');
+
+          return dataNotes || '';
+
+        }
+
+    
+
+        function updateNotes() {
+
+          try {
+
+            var content = document.getElementById('notes-content');
+
+            var btn = document.getElementById('toggle-notes-btn');
+
+            if (!content) return;
+
+            var slide = (window.Reveal && typeof window.Reveal.getCurrentSlide === 'function')
+
+              ? window.Reveal.getCurrentSlide() : null;
+
+            var html = getNotesHTML(slide);
+
+            var hasNotes = html && html.trim();
+
+    
+
+            content.innerHTML = hasNotes ? html : '<em>No notes for this slide.</em>';
+
+    
+
+            // Add/remove highlight based on whether notes exist
+
+            if (btn) {
+
+              if (hasNotes) {
+
+                btn.classList.add('has-notes');
+
+              } else {
+
+                btn.classList.remove('has-notes');
+
+              }
+
+            }
+
+          } catch (e) {
+
+            // Ignore
+
+          }
+
+        }
+
+    
+
+        function togglePanel() {
+
+          var panel = document.getElementById('notes-panel');
 
           var btn = document.getElementById('toggle-notes-btn');
 
-          if (!content) return;
+          if (!panel || !btn) return;
 
-          var slide = (window.Reveal && typeof window.Reveal.getCurrentSlide === 'function')
+          var isHidden = panel.hasAttribute('hidden');
 
-            ? window.Reveal.getCurrentSlide() : null;
+          if (isHidden) {
 
-          var html = getNotesHTML(slide);
+            panel.removeAttribute('hidden');
 
-          var hasNotes = html && html.trim();
+            btn.setAttribute('aria-expanded', 'true');
 
-          
+            btn.textContent = 'Hide';
 
-          content.innerHTML = hasNotes ? html : '<em>No notes for this slide.</em>';
+            updateNotes();
 
-          
+            requestAnimationFrame(function () {
 
-          // Add/remove highlight based on whether notes exist
+              var height = panel.offsetHeight || 0;
 
-          if (btn) {
+              setRevealViewportHeight(height);
 
-            if (hasNotes) {
+              if (window.Reveal && typeof window.Reveal.layout === 'function') {
 
-              btn.classList.add('has-notes');
+                window.Reveal.layout();
 
-            } else {
+              }
 
-              btn.classList.remove('has-notes');
+            });
+
+          } else {
+
+            panel.setAttribute('hidden', '');
+
+            btn.setAttribute('aria-expanded', 'false');
+
+            btn.textContent = 'Narration';
+
+            setRevealViewportHeight(0);
+
+            if (window.Reveal && typeof window.Reveal.layout === 'function') {
+
+              window.Reveal.layout();
 
             }
 
           }
 
-        } catch (e) {
-
-          // Ignore
-
         }
-
-      }
 
     
 
-      function togglePanel(){
+        function init() {
 
-        var panel = document.getElementById('notes-panel');
+          var btn = document.getElementById('toggle-notes-btn');
 
-        var btn = document.getElementById('toggle-notes-btn');
+          if (btn) {
 
-        if (!panel || !btn) return;
+            btn.addEventListener('click', function (ev) { ev.preventDefault(); togglePanel(); });
 
-        var isHidden = panel.hasAttribute('hidden');
+            btn.title = 'Show or hide narration for the current slide';
 
-        if (isHidden) {
+          }
 
-          panel.removeAttribute('hidden');
+          // Update notes when the deck is ready and on slide changes
 
-          btn.setAttribute('aria-expanded', 'true');
+          if (window.Reveal && typeof window.Reveal.on === 'function') {
 
-          btn.textContent = 'Hide';
+            window.Reveal.on('ready', updateNotes);
 
-          updateNotes();
+            window.Reveal.on('slidechanged', updateNotes);
 
-          requestAnimationFrame(function(){
+          } else {
 
-            var height = panel.offsetHeight || 0;
+            // Fallback: update once after DOM ready
 
-            setRevealViewportHeight(height);
+            updateNotes();
 
-            if (window.Reveal && typeof window.Reveal.layout === 'function') {
+          }
 
-              window.Reveal.layout();
+    
+
+          // Keep reveal viewport adjusted on resize when panel is visible
+
+          window.addEventListener('resize', function () {
+
+            var panel = document.getElementById('notes-panel');
+
+            if (panel && !panel.hasAttribute('hidden')) {
+
+              setRevealViewportHeight(panel.offsetHeight || 0);
+
+              if (window.Reveal && typeof window.Reveal.layout === 'function') {
+
+                window.Reveal.layout();
+
+              }
 
             }
 
           });
 
-        } else {
-
-          panel.setAttribute('hidden', '');
-
-          btn.setAttribute('aria-expanded', 'false');
-
-          btn.textContent = 'Narration';
-
-          setRevealViewportHeight(0);
-
-          if (window.Reveal && typeof window.Reveal.layout === 'function') {
-
-            window.Reveal.layout();
-
-          }
-
         }
-
-      }
 
     
 
-      function init(){
+        if (document.readyState === 'loading') {
 
-        var btn = document.getElementById('toggle-notes-btn');
-
-        if (btn) {
-
-          btn.addEventListener('click', function(ev){ ev.preventDefault(); togglePanel(); });
-
-          btn.title = 'Show or hide narration for the current slide';
-
-        }
-
-        // Update notes when the deck is ready and on slide changes
-
-        if (window.Reveal && typeof window.Reveal.on === 'function'){
-
-          window.Reveal.on('ready', updateNotes);
-
-          window.Reveal.on('slidechanged', updateNotes);
+          document.addEventListener('DOMContentLoaded', init);
 
         } else {
 
-          // Fallback: update once after DOM ready
-
-          updateNotes();
+          init();
 
         }
 
-    
-
-        // Keep reveal viewport adjusted on resize when panel is visible
-
-        window.addEventListener('resize', function(){
-
-          var panel = document.getElementById('notes-panel');
-
-          if (panel && !panel.hasAttribute('hidden')){
-
-            setRevealViewportHeight(panel.offsetHeight || 0);
-
-            if (window.Reveal && typeof window.Reveal.layout === 'function') {
-
-              window.Reveal.layout();
-
-            }
-
-          }
-
-        });
-
-      }
-
-    
-
-      if (document.readyState === 'loading') {
-
-        document.addEventListener('DOMContentLoaded', init);
-
-      } else {
-
-        init();
-
-      }
-
-    })();
+      })();
 
     </script>
 
@@ -2032,117 +2032,137 @@ First slide opens with what we will discuss and make this week.
 
     <style>
 
-    .quarto-notes-button { 
+      .quarto-notes-button {
 
-      position: fixed; 
+        position: fixed;
 
-      right: 16px;
+        right: 16px;
 
-      bottom: calc(max(16px + var(--quarto-notes-height, 0px), 10%)); 
+        bottom: calc(max(16px + var(--quarto-notes-height, 0px), 10%));
 
-      z-index: 9999; 
+        z-index: 9999;
 
-    }
-
-    .quarto-notes-button button {
-
-      padding: 8px 12px;
-
-      font-family: var(--r-main-font);
-
-      font-weight: var(--r-main-font-weight);
-
-      font-size: var(--r-main-font-size)*0.9;
-
-      border-radius: 6px;
-
-      border: 1px solid #999;
-
-      background: #ffffff;
-
-      color: #222;
-
-      cursor: pointer;
-
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-
-    }
-
-    .quarto-notes-button button:hover { background: #f3f3f3; }
+      }
 
     
 
-    .quarto-notes-button button.has-notes {
+      .quarto-notes-button button {
 
-      background: #fffacd;
+        padding: 8px 12px;
 
-      border-color: #ffeb3b;
+        font-family: var(--r-main-font);
 
-      font-weight: 600;
+        font-weight: var(--r-main-font-weight);
 
-      box-shadow: 0 0 0 2px rgba(255, 235, 59, 0.3);
+        font-size: calc(var(--r-main-font-size)*0.7);
 
-    }
+        border-radius: 6px;
 
-    
+        border: 1px solid #999;
 
-    .quarto-notes-button button.has-notes:hover {
+        background: #ffffff;
 
-      background: #fff9c4;
+        color: #222;
 
-    }
+        cursor: pointer;
 
-    
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
-    #notes-panel {
-
-      position: fixed;
-
-      left: 0; right: 0; bottom: 0;
-
-      max-height: 40vh;
-
-      background: rgba(255,255,255);
-
-      border-top: 1px solid #ddd;
-
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.12);
-
-      z-index: 9998;
-
-      padding: 10px 16px;
-
-      overflow: auto;
-
-      font-family: var(--r-main-font);
-
-      font-weight: var(--r-main-font-weight);
-
-      font-size: var(--r-main-font-size);
-
-    }
-
-    #notes-panel .notes-header{
-
-      font-family: var(--r-header-font);
-
-      font-weight: var(--r-header-font-weight);
-
-      font-size: var(--r-header-font-size);
-
-      color: #555;
-
-      margin-bottom: 6px;
-
-    }
-
-    #notes-content { font-size: 1.05rem; line-height: 1.65; }
+      }
 
     
 
-    /* Reduce Reveal viewport height when notes are visible */
+      .quarto-notes-button button:hover {
 
-    /* .reveal,
+        background: #f3f3f3;
+
+      }
+
+    
+
+      .quarto-notes-button button.has-notes {
+
+        background: #fffacd;
+
+        border-color: #ffeb3b;
+
+        font-weight: 600;
+
+        box-shadow: 0 0 0 2px rgba(255, 235, 59, 0.3);
+
+      }
+
+    
+
+      .quarto-notes-button button.has-notes:hover {
+
+        background: #fff9c4;
+
+      }
+
+    
+
+      #notes-panel {
+
+        position: fixed;
+
+        left: 0;
+
+        right: 0;
+
+        bottom: 0;
+
+        max-height: 40vh;
+
+        background: rgba(255, 255, 255);
+
+        border-top: 1px solid #ddd;
+
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.12);
+
+        z-index: 9998;
+
+        padding: 10px 16px;
+
+        overflow: auto;
+
+        font-family: var(--r-main-font);
+
+        font-weight: var(--r-main-font-weight);
+
+        font-size: calc(var(--r-main-font-size) * 0.7);
+
+        line-height: normal;
+
+      }
+
+    
+
+      #notes-panel .notes-header {
+
+        font-family: var(--r-main-font);
+
+        font-weight: var(--r-main-font-weight);
+
+        font-size: calc(var(--r-main-font-size) * 1.0);
+
+        color: #555;
+
+        margin-bottom: 6px;
+
+        line-height: normal;
+
+      }
+
+    
+
+      /* #notes-content { font-size: 1.05rem; line-height: 1.65; } */
+
+    
+
+      /* Reduce Reveal viewport height when notes are visible */
+
+      /* .reveal,
 
     .reveal-viewport {
 
@@ -2152,11 +2172,19 @@ First slide opens with what we will discuss and make this week.
 
     
 
-    @media print { 
+      @media print {
 
-      .quarto-notes-button, #notes-panel { display: none; }
+    
 
-    }
+        .quarto-notes-button,
+
+        #notes-panel {
+
+          display: none;
+
+        }
+
+      }
 
     </style>
 
