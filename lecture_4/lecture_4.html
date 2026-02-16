@@ -360,7 +360,7 @@
 <section id="push-pop" class="slide level2">
 <h2>Push &amp; Pop</h2>
 <aside class="notes">
-
+<p>Push and pop are used to save and restore the current drawing state, which includes transformations like translation and rotation, as well as styles like fill and stroke. This allows us to make temporary changes to the drawing state without affecting the rest of our sketch.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -407,7 +407,7 @@
 <section id="straight-angles" class="slide level2">
 <h2>Straight angles</h2>
 <aside class="notes">
-
+<p>We have already seen this last lecture, but there was not enough time to go into detail. We will now look at how to draw angled rectangles, which we need for our flower sketch.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -453,7 +453,7 @@
 <section id="translate" class="slide level2">
 <h2>Translate</h2>
 <aside class="notes">
-
+<p>It is most common to push and to translate to a nice location before drawing, and using pop to reset the origin after drawing. This way we can draw multiple shapes on different locations without worrying about the transformations affecting each other.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -500,7 +500,7 @@
 <section id="rotate" class="slide level2">
 <h2>Rotate</h2>
 <aside class="notes">
-
+<p>Rotating without translating first would rotate the entire coordinate system around the top left corner, which is usually not what we want. By translating first, we can rotate around a specific point, such as the center of our flower.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -547,7 +547,7 @@
 <section id="for-loop" class="slide level2">
 <h2>For-loop</h2>
 <aside class="notes">
-
+<p>We will keep repeating for-loops whenever possible. Whenever you find yourself in need of repeating code, think about how you can use a for-loop to automate the repetition. This will save you a lot of time and make your code cleaner and more efficient.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -593,7 +593,7 @@
 <section id="flower" class="slide level2">
 <h2>Flower!</h2>
 <aside class="notes">
-
+<p>Feel free to use the previous sketches as a starting point for your flower sketch. You can experiment with different numbers of petals, sizes, and colours to create your own unique flower design.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -631,8 +631,15 @@
 </section>
 <section id="shape-functions" class="slide level2">
 <h2>Shape functions</h2>
+<ul>
+<li><code>rect()</code> and <code>ellipse()</code> are examples of functions that draw shapes on the canvas</li>
+<li>What if we want to repeatedly draw a custom shape?</li>
+</ul>
+</section>
+<section id="vertices" class="slide level2">
+<h2>Vertices</h2>
 <aside class="notes">
-
+<p>Vertices are nice but can be confusing. Make sure to start and end your shape with <code>beginShape()</code> and <code>endShape(CLOSE)</code>, and to define every vertex with <code>vertex(x, y)</code>. If you forget to do this, you might end up with unexpected results or errors in your code.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -644,13 +651,6 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-<ul>
-<li><code>rect()</code> and <code>ellipse()</code> are examples of functions that draw shapes on the canvas</li>
-<li>What if we want to repeatedly draw a custom shape?</li>
-</ul>
-</section>
-<section id="vertices" class="slide level2">
-<h2>Vertices</h2>
 <ul>
 <li>We can define custom shapes with vertices</li>
 <li>Start and end your shape with <code>beginShape()</code> and <code>endShape(CLOSE)</code></li>
@@ -693,6 +693,19 @@
 </section>
 <section id="functions" class="slide level2">
 <h2>Functions</h2>
+<aside class="notes">
+<p>Functions are one of the last big “fundamentals” that we will cover. They are essential for writing clean and efficient code, and they allow us to break down complex problems into smaller, more manageable pieces. By using functions, we can reuse code and avoid repetition, which makes our programs easier to read and maintain.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li>Functions are reusable blocks of code that perform a specific task</li>
 <li>They allow us to organize our code and avoid repetition</li>
@@ -805,7 +818,7 @@
 <section id="flower-forest" class="slide level2">
 <h2>Flower forest</h2>
 <aside class="notes">
-
+<p>For the starting slide I’ve also added colour and rotation.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -918,6 +931,19 @@
 </section>
 <section id="easing" class="slide level2">
 <h2>Easing</h2>
+<aside class="notes">
+<p>Should be noted that you can use this for any number, not just positions. For example, you could use easing to smoothly change the size of an object or the colour over time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li>Easing is a technique used to create smooth animations by gradually changing a value over time</li>
 <li>Instead of instantly changing a value to a new target, we can “ease” towards the new one</li>
@@ -963,6 +989,19 @@
 </section>
 <section id="mousing-around" class="slide level2">
 <h2>Mousing around</h2>
+<aside class="notes">
+<p>One nice idea is to try to make it so that you have to click on a specific rectangle.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1025,6 +1064,19 @@
 </section>
 <section id="a-useful-snippet" class="slide level2">
 <h2>A useful snippet</h2>
+<aside class="notes">
+<p>This is a really useful piece of code that you can use for debugging purposes. In class we will also run this code in Processing and see how to debug pieces of code with logging.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li>We prefer using <code>key</code> for letter keys and <code>keyCode</code> for special keys</li>
 <li>With a small tool, though, we can find the keycode for any key</li>
@@ -1090,6 +1142,19 @@
 </section>
 <section id="key-controls" class="slide level2">
 <h2>Key controls</h2>
+<aside class="notes">
+<p>Very common for games and other interactive sketches that need control of a character.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li>One of the most common uses of keyboard input is to control an object</li>
 <li>In this example, we can move the ball with the arrow keys</li>
