@@ -221,6 +221,7 @@
                 <ul>
                 <li><a href="#/shape-functions" id="/toc-shape-functions">Shape functions</a></li>
                 <li><a href="#/vertices" id="/toc-vertices">Vertices</a></li>
+                <li><a href="#/extra-round-vertices" id="/toc-extra-round-vertices">Extra: Round vertices</a></li>
                 <li><a href="#/repeatedly-drawing-shapes" id="/toc-repeatedly-drawing-shapes">Repeatedly drawing shapes</a></li>
                 <li><a href="#/functions" id="/toc-functions">Functions</a></li>
                 <li><a href="#/function-syntax" id="/toc-function-syntax">Function syntax</a></li>
@@ -239,6 +240,7 @@
                 <li><a href="#/mouse-event-parameters" id="/toc-mouse-event-parameters">Mouse event parameters</a></li>
                 <li><a href="#/easing" id="/toc-easing">Easing</a></li>
                 <li><a href="#/easing-example" id="/toc-easing-example">Easing example</a></li>
+                <li><a href="#/extra-mouse-state-outside-of-events" id="/toc-extra-mouse-state-outside-of-events">Extra: Mouse state outside of events</a></li>
                 <li><a href="#/mousing-around" id="/toc-mousing-around">Mousing around</a></li>
                 </ul></li>
                 <li><a href="#/keyboard" id="/toc-keyboard">Keyboard</a>
@@ -248,6 +250,7 @@
                 <li><a href="#/key-example" id="/toc-key-example">Key example</a></li>
                 <li><a href="#/a-useful-snippet" id="/toc-a-useful-snippet">A useful snippet</a></li>
                 <li><a href="#/programming-with-keyboard-events" id="/toc-programming-with-keyboard-events">Programming with keyboard events</a></li>
+                <li><a href="#/extra-key-state-outside-of-events" id="/toc-extra-key-state-outside-of-events">Extra: Key state outside of events</a></li>
                 <li><a href="#/key-controls" id="/toc-key-controls">Key controls</a></li>
                 <li><a href="#/alphabet" id="/toc-alphabet">Alphabet</a></li>
                 </ul></li>
@@ -683,6 +686,53 @@
     </style>
     
 </section>
+<section id="extra-round-vertices" class="slide level2">
+<h2>Extra: Round vertices</h2>
+<aside class="notes">
+<p>This is an extra slide that was not covered in class, but a student asked about it in class. The bezierCurve function is quite tricky to use, but it can create some really nice curves if you get the hang of it. It is definitely worth experimenting with if you want to add some extra flair to your shapes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>We can also round the corners of our shapes via <code>bezierVertex()</code></li>
+<li>This function takes two control points and an anchor point, which defines a curve between the previous vertex and the anchor point</li>
+<li><code>bezierVertex(x1, y1, x2, y2, x3, y3)</code> where (x1, y1) and (x2, y2) are the control points and (x3, y3) is the final destination anchor point</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_4%2Fcode%2F0422_vertices_round.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
 <section id="repeatedly-drawing-shapes" class="slide level2">
 <h2>Repeatedly drawing shapes</h2>
 <ul>
@@ -987,6 +1037,32 @@
     </style>
     
 </section>
+<section id="extra-mouse-state-outside-of-events" class="slide level2">
+<h2>Extra: Mouse state outside of events</h2>
+<aside class="notes">
+<p>This slide was not covered in class, but it is a useful function to know about if you want to check the state of the mouse outside of the event functions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>If you want to check the state of the mouse outside of the event functions, you can use the <code>mouseIsPressed</code> variable</li>
+<li>This variable is <code>true</code> if the mouse is currently being pressed, and <code>false</code> otherwise</li>
+<li><code>mouseButton</code> contains the value of the mouse button that is currently being pressed (LEFT, RIGHT, or CENTER)</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href=""></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb6-2"><a href=""></a>  <span class="cf">if</span> (mouseIsPressed) {</span>
+<span id="cb6-3"><a href=""></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(mouseButton)<span class="op">;</span> <span class="co">// Output: LEFT, RIGHT, or CENTER depending on which button is pressed</span></span>
+<span id="cb6-4"><a href=""></a>  }</span>
+<span id="cb6-5"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
 <section id="mousing-around" class="slide level2">
 <h2>Mousing around</h2>
 <aside class="notes">
@@ -1052,15 +1128,15 @@
 <ul>
 <li>In the snippet below we check whether the ‘a’ key, space bar, or left arrow key is pressed and do something in each case</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href=""></a><span class="kw">function</span> <span class="fu">keyPressed</span>() {</span>
-<span id="cb6-2"><a href=""></a>  <span class="cf">if</span> (key <span class="op">===</span> <span class="st">'a'</span>) {</span>
-<span id="cb6-3"><a href=""></a>    <span class="co">// Do something when the 'a' key is pressed</span></span>
-<span id="cb6-4"><a href=""></a>  } <span class="cf">else</span> <span class="cf">if</span> (keyCode <span class="op">===</span> <span class="dv">32</span>) { <span class="co">// We could have also used SPACE instead of 32</span></span>
-<span id="cb6-5"><a href=""></a>    <span class="co">// Do something when the space bar (keyCode 32) is pressed</span></span>
-<span id="cb6-6"><a href=""></a>  } <span class="cf">else</span> <span class="cf">if</span> (keyCode <span class="op">===</span> LEFT_ARROW) {</span>
-<span id="cb6-7"><a href=""></a>    <span class="co">// Do something when the left arrow key is pressed</span></span>
-<span id="cb6-8"><a href=""></a>  }</span>
-<span id="cb6-9"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href=""></a><span class="kw">function</span> <span class="fu">keyPressed</span>() {</span>
+<span id="cb7-2"><a href=""></a>  <span class="cf">if</span> (key <span class="op">==</span> <span class="st">'a'</span>) {</span>
+<span id="cb7-3"><a href=""></a>    <span class="co">// Do something when the 'a' key is pressed</span></span>
+<span id="cb7-4"><a href=""></a>  } <span class="cf">else</span> <span class="cf">if</span> (keyCode <span class="op">==</span> <span class="dv">32</span>) { <span class="co">// We could have also used SPACE instead of 32</span></span>
+<span id="cb7-5"><a href=""></a>    <span class="co">// Do something when the space bar (keyCode 32) is pressed</span></span>
+<span id="cb7-6"><a href=""></a>  } <span class="cf">else</span> <span class="cf">if</span> (keyCode <span class="op">==</span> LEFT_ARROW) {</span>
+<span id="cb7-7"><a href=""></a>    <span class="co">// Do something when the left arrow key is pressed</span></span>
+<span id="cb7-8"><a href=""></a>  }</span>
+<span id="cb7-9"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="a-useful-snippet" class="slide level2">
 <h2>A useful snippet</h2>
@@ -1139,6 +1215,31 @@
     }
     </style>
     
+</section>
+<section id="extra-key-state-outside-of-events" class="slide level2">
+<h2>Extra: Key state outside of events</h2>
+<aside class="notes">
+<p>This slide was not covered in class, but it is a useful function to know about if you want to check the state of the keyboard outside of the event functions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>If you want to check the state of the keyboard outside of the event functions, you can use the <code>keyIsDown()</code> function</li>
+<li>This function takes a key code as an argument and returns <code>true</code> if that key is currently being pressed, and <code>false</code> otherwise</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb8-1"><a href=""></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb8-2"><a href=""></a>  <span class="cf">if</span> (<span class="fu">keyIsDown</span>(LEFT_ARROW)) {</span>
+<span id="cb8-3"><a href=""></a>    <span class="co">// Do something while the left arrow key is being pressed</span></span>
+<span id="cb8-4"><a href=""></a>  }</span>
+<span id="cb8-5"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="key-controls" class="slide level2">
 <h2>Key controls</h2>
