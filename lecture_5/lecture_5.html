@@ -407,7 +407,7 @@
       }</style></aside>
 <ul>
 <li>if statements can be used to constrain values, but they can be verbose and error-prone.</li>
-<li>Example: constraining a variable <code>x</code> to be between 0 and 100.</li>
+<li>Example: constraining a variable <code>constrainedX</code> to the square.</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_5%2Fcode%2F0500_constrain_if.js" title="P5.js Applet"></iframe>
@@ -453,7 +453,7 @@
       }</style></aside>
 <ul>
 <li>p5.js provides a built-in function <code>constrain()</code> that simplifies the process of constraining values.</li>
-<li>Example: constraining a variable <code>x</code> to be between 0 and 100 using <code>constrain()</code>.</li>
+<li>Example: constraining a variable <code>constrainedX</code> using <code>constrain()</code>.</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_5%2Fcode%2F0501_constrain.js" title="P5.js Applet"></iframe>
@@ -500,7 +500,7 @@
 <ul>
 <li>Another way to constrain values is by using the <code>min()</code> and <code>max()</code> functions.</li>
 <li><code>min()</code> returns the smaller of two values, while <code>max()</code> returns the larger.</li>
-<li>Example: constraining a variable <code>x</code> to be between 0 and 100 using <code>min()</code> and <code>max()</code>.</li>
+<li>Example: constraining a variable <code>constrainedX</code> using <code>min()</code> and <code>max()</code>.</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_5%2Fcode%2F0502_constrain_min_max.js" title="P5.js Applet"></iframe>
@@ -533,6 +533,7 @@
 <h2>Constraining via modulo</h2>
 <aside class="notes">
 <p>This is wrapping behaviour, which can be useful in some cases (e.g.&nbsp;looping animations, games, etc.). However, it is not suitable for all types of constrainment, especially if you want to stop values at the boundaries rather than wrapping them around. Also be careful of negative values.</p>
+<p>The value of the modulo operator comes from the remainder of division, which can be used to wrap values around a certain range. For example, if you have a variable <code>x</code> that you want to wrap between 0 and 100, you can use <code>x % 100</code> to ensure that <code>x</code> stays within that range. If <code>x</code> exceeds 100, it will wrap back around to the beginning of the range.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -547,7 +548,7 @@
 <ul>
 <li>The modulo operator <code>%</code> can be used to wrap values around a certain range.</li>
 <li>This is particularly useful for creating looping behavior, such as in animations or games.</li>
-<li>Example: wrapping a variable <code>x</code> to be between 0 and 100 using modulo.</li>
+<li>Example: wrapping a variable <code>moduloX</code> to be between 0 and 220.</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_5%2Fcode%2F0503_modulo.js" title="P5.js Applet"></iframe>
@@ -579,7 +580,7 @@
 <section id="constraining-via-mapping" class="slide level2">
 <h2>Constraining via mapping</h2>
 <aside class="notes">
-<p>The term mapping comes from mapping two ranges to each other.</p>
+<p>The term mapping comes from mapping two ranges to each other. For example, if you have a variable <code>x</code> that ranges from 0 to 400 and you want to map it to a range of 0 to 100, you can use the <code>map()</code> function to scale <code>x</code> accordingly. The <code>map()</code> function takes five arguments: the value to be mapped, the minimum and maximum of the input range, and the minimum and maximum of the output range. In this case, you would call <code>map(x, 0, 400, 0, 100)</code> to map <code>x</code> from the range of 0-400 to the range of 0-100.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -592,9 +593,9 @@
           display:block!important;
       }</style></aside>
 <ul>
-<li>The <code>map()</code> function can be used to scale and constrain values from one range to another.</li>
+<li>The <code>map()</code> function scales and constrains values.</li>
 <li>You map two ranges to each other, and the function will automatically scale the input value to fit within the output range.</li>
-<li>Example: mapping a variable <code>x</code> from the range 0-255 to the range 0-100.</li>
+<li>Example: mapping a variable <code>mappedX</code> from 0-400 to 100-220.</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_5%2Fcode%2F0504_map.js" title="P5.js Applet"></iframe>
@@ -830,6 +831,7 @@
 <h2>Playing a note</h2>
 <ul>
 <li>We can play single notes by specifying their note name (e.g.&nbsp;“A4”) or their frequency in hertz (e.g.&nbsp;440).</li>
+<li><code>play(note, volume, delay, time)</code> takes four arguments to specify the pitch, volume (0-1), delay before the note starts (in seconds), and duration of the note (in seconds).</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_5%2Fcode%2F0510_synthesizer.js" title="P5.js Applet"></iframe>
@@ -1187,6 +1189,19 @@
 </section>
 <section id="easing-the-microphone" class="slide level2">
 <h2>Easing the microphone</h2>
+<aside class="notes">
+<p>Try to change the easing values (0.8 and 0.2) to create a smoother/less smooth effect.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <ul>
 <li>The microphone values are very jittery and can change rapidly, which can make it difficult to create smooth visualizations or interactions.</li>
 <li>Easing can get rid of the jitter and create smoother transitions between values.</li>
@@ -1287,6 +1302,19 @@
 </section>
 <section id="sound-reactive" class="slide level2">
 <h2>Sound reactive</h2>
+<aside class="notes">
+<p>We did not end up doing this assignment during the lecture due to time constraints, but it is a nice assignment to try out on your own!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">

@@ -3721,7 +3721,85 @@ vertical-align: -.125em;
 <blockquote class="blockquote">
 <p><strong>Lecture 5</strong></p>
 </blockquote>
-<p>When working with dynamic values (from mouse position, keyboard input, or calculations), it’s often necessary to keep them within specific ranges. p5.js provides several techniques to constrain values:</p>
+<p>When working with dynamic values (from mouse position, keyboard input, or calculations), it’s often necessary to keep them within specific ranges. p5.js provides several techniques to constrain values. Here is an overview of their behaviour when converting a value from <code>(0, 10)</code> to a new range <code>(0, 5)</code>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Raw</strong></th>
+<th><strong>Constrained</strong></th>
+<th><strong>Modulo</strong></th>
+<th><strong>Map</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0.5</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>1.5</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>5</td>
+<td>0</td>
+<td>2.5</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>5</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>5</td>
+<td>2</td>
+<td>3.5</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>5</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>5</td>
+<td>4</td>
+<td>4.5</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>5</td>
+<td>0</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
 <section id="constraining-with-constrain" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="constraining-with-constrain"><span class="header-section-number">16.1</span> Constraining with <code>constrain()</code></h2>
 <p>The simplest way to constrain a value between a minimum and maximum is the <a href="https://p5js.org/reference/p5/constrain/"><code>constrain()</code></a> function:</p>
@@ -4099,106 +4177,111 @@ vertical-align: -.125em;
 <td>Return larger of two values</td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><a href="https://p5js.org/reference/p5/map/"><code>map()</code></a></td>
+<td>Rescale value from one range to another</td>
+</tr>
+<tr class="even">
 <td><strong>Sound</strong></td>
 <td><a href="https://p5js.org/reference/p5/userStartAudio/"><code>userStartAudio()</code></a></td>
 <td>Enable audio (call in user event)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.sound/p5.MonoSynth/"><code>new p5.MonoSynth()</code></a></td>
 <td>Create single-note synthesizer</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.sound/p5.PolySynth/"><code>new p5.PolySynth()</code></a></td>
 <td>Create multi-note synthesizer</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.MonoSynth/play/"><code>synthesizer.play()</code></a></td>
 <td>Play a note</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/loadSound/"><code>loadSound()</code></a></td>
 <td>Load sound file from URL or local file</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/play/"><code>soundFile.play()</code></a></td>
 <td>Play sound file from beginning</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/pause/"><code>soundFile.pause()</code></a></td>
 <td>Pause sound file</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/stop/"><code>soundFile.stop()</code></a></td>
 <td>Stop and reset sound file</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/loop/"><code>soundFile.loop()</code></a></td>
 <td>Loop sound file indefinitely</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/setVolume/"><code>soundFile.setVolume()</code></a></td>
 <td>Set volume (0 to 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.sound/p5.AudioIn/"><code>new p5.AudioIn()</code></a></td>
 <td>Create microphone input object</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.AudioIn/start/"><code>audioin.start()</code></a></td>
 <td>Start listening to microphone</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.AudioIn/getLevel/"><code>audioin.getLevel()</code></a></td>
 <td>Get current audio level (0 to 1)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Events</strong></td>
 <td><a href="https://p5js.org/reference/p5/mouseReleased/"><code>mouseReleased()</code></a></td>
 <td>Runs when mouse button is released</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseClicked/"><code>mouseClicked()</code></a></td>
 <td>Runs when mouse button is clicked</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseMoved/"><code>mouseMoved()</code></a></td>
 <td>Runs when mouse moves</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseDragged/"><code>mouseDragged()</code></a></td>
 <td>Runs when mouse moves while pressed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseWheel/"><code>mouseWheel()</code></a></td>
 <td>Runs when mouse wheel is scrolled</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/keyPressed/"><code>keyPressed()</code></a></td>
 <td>Runs when a key is pressed</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/keyReleased/"><code>keyReleased()</code></a></td>
 <td>Runs when a key is released</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/keyTyped/"><code>keyTyped()</code></a></td>
 <td>Runs when a key is typed</td>
