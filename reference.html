@@ -2326,12 +2326,32 @@ vertical-align: -.125em;
   <li><a href="#sound-in-p5.js" id="toc-sound-in-p5.js" class="nav-link" data-scroll-target="#sound-in-p5.js"><span class="header-section-number">17</span> Sound in p5.js</a>
   <ul class="collapse">
   <li><a href="#setting-up-sound" id="toc-setting-up-sound" class="nav-link" data-scroll-target="#setting-up-sound"><span class="header-section-number">17.1</span> Setting Up Sound</a></li>
-  <li><a href="#browser-audio-requirement" id="toc-browser-audio-requirement" class="nav-link" data-scroll-target="#browser-audio-requirement"><span class="header-section-number">17.2</span> Browser Audio Requirement</a></li>
-  <li><a href="#playing-sound-in-p5.js" id="toc-playing-sound-in-p5.js" class="nav-link" data-scroll-target="#playing-sound-in-p5.js"><span class="header-section-number">17.3</span> Playing sound in p5.js</a></li>
-  <li><a href="#microphone-input" id="toc-microphone-input" class="nav-link" data-scroll-target="#microphone-input"><span class="header-section-number">17.4</span> Microphone Input</a></li>
+  <li><a href="#backup-option" id="toc-backup-option" class="nav-link" data-scroll-target="#backup-option"><span class="header-section-number">17.2</span> Backup Option</a></li>
+  <li><a href="#browser-audio-requirement" id="toc-browser-audio-requirement" class="nav-link" data-scroll-target="#browser-audio-requirement"><span class="header-section-number">17.3</span> Browser Audio Requirement</a></li>
+  <li><a href="#playing-sound-in-p5.js" id="toc-playing-sound-in-p5.js" class="nav-link" data-scroll-target="#playing-sound-in-p5.js"><span class="header-section-number">17.4</span> Playing sound in p5.js</a></li>
+  <li><a href="#microphone-input" id="toc-microphone-input" class="nav-link" data-scroll-target="#microphone-input"><span class="header-section-number">17.5</span> Microphone Input</a></li>
   </ul></li>
-  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference"><span class="header-section-number">18</span> Quick Reference</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">19</span> Additional Resources</a></li>
+  <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging"><span class="header-section-number">18</span> Debugging</a>
+  <ul class="collapse">
+  <li><a href="#practical-debugging-workflow" id="toc-practical-debugging-workflow" class="nav-link" data-scroll-target="#practical-debugging-workflow"><span class="header-section-number">18.1</span> Practical Debugging Workflow</a></li>
+  <li><a href="#common-bug-types" id="toc-common-bug-types" class="nav-link" data-scroll-target="#common-bug-types"><span class="header-section-number">18.2</span> Common Bug Types</a></li>
+  <li><a href="#example-focused-logging" id="toc-example-focused-logging" class="nav-link" data-scroll-target="#example-focused-logging"><span class="header-section-number">18.3</span> Example: Focused Logging</a></li>
+  </ul></li>
+  <li><a href="#objects" id="toc-objects" class="nav-link" data-scroll-target="#objects"><span class="header-section-number">19</span> Objects</a>
+  <ul class="collapse">
+  <li><a href="#why-objects" id="toc-why-objects" class="nav-link" data-scroll-target="#why-objects"><span class="header-section-number">19.1</span> Why Objects?</a></li>
+  <li><a href="#object-literal" id="toc-object-literal" class="nav-link" data-scroll-target="#object-literal"><span class="header-section-number">19.2</span> Object Literal</a></li>
+  <li><a href="#arrays-of-objects" id="toc-arrays-of-objects" class="nav-link" data-scroll-target="#arrays-of-objects"><span class="header-section-number">19.3</span> Arrays of Objects</a></li>
+  <li><a href="#factory-function-pattern" id="toc-factory-function-pattern" class="nav-link" data-scroll-target="#factory-function-pattern"><span class="header-section-number">19.4</span> Factory Function Pattern</a></li>
+  <li><a href="#methods-on-objects" id="toc-methods-on-objects" class="nav-link" data-scroll-target="#methods-on-objects"><span class="header-section-number">19.5</span> Methods on Objects</a></li>
+  </ul></li>
+  <li><a href="#while-foreach-loops" id="toc-while-foreach-loops" class="nav-link" data-scroll-target="#while-foreach-loops"><span class="header-section-number">20</span> While &amp; forEach Loops</a>
+  <ul class="collapse">
+  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="header-section-number">20.1</span> <code>while</code> Loop</a></li>
+  <li><a href="#foreach-loop" id="toc-foreach-loop" class="nav-link" data-scroll-target="#foreach-loop"><span class="header-section-number">20.2</span> <code>forEach</code> Loop</a></li>
+  </ul></li>
+  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference"><span class="header-section-number">21</span> Quick Reference</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">22</span> Additional Resources</a></li>
   </ul>
 </nav>
 </div>
@@ -3865,118 +3885,275 @@ vertical-align: -.125em;
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb87"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> language</span><span class="op">=</span><span class="st">&quot;javascript&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;libraries/p5.sound.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="browser-audio-requirement" class="level2" data-number="17.2">
-<h2 data-number="17.2" class="anchored" data-anchor-id="browser-audio-requirement"><span class="header-section-number">17.2</span> Browser Audio Requirement</h2>
+<section id="backup-option" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="backup-option"><span class="header-section-number">17.2</span> Backup Option</h2>
+<p>In case you have trouble with the local library, you can also load p5.sound from an URL. In this case, add the following line to your <code>index.html</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb88"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="browser-audio-requirement" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="browser-audio-requirement"><span class="header-section-number">17.3</span> Browser Audio Requirement</h2>
 <p>Browsers require user interaction before handling sound. Always call <a href="https://p5js.org/reference/p5.sound/userStartAudio/"><code>userStartAudio()</code></a> in a user event (click, key press, etc.):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb88"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">userStartAudio</span>()<span class="op">;</span></span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Now you can work with audio</span></span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb89"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">userStartAudio</span>()<span class="op">;</span></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Now you can work with audio</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="playing-sound-in-p5.js" class="level2" data-number="17.3">
-<h2 data-number="17.3" class="anchored" data-anchor-id="playing-sound-in-p5.js"><span class="header-section-number">17.3</span> Playing sound in p5.js</h2>
+<section id="playing-sound-in-p5.js" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="playing-sound-in-p5.js"><span class="header-section-number">17.4</span> Playing sound in p5.js</h2>
 <p>There are a couple of ways to create sound in p5.js.</p>
-<section id="playing-single-notes" class="level3" data-number="17.3.1">
-<h3 data-number="17.3.1" class="anchored" data-anchor-id="playing-single-notes"><span class="header-section-number">17.3.1</span> Playing Single Notes</h3>
+<section id="playing-single-notes" class="level3" data-number="17.4.1">
+<h3 data-number="17.4.1" class="anchored" data-anchor-id="playing-single-notes"><span class="header-section-number">17.4.1</span> Playing Single Notes</h3>
 <p>The simplest way is to use <code>p5.MonoSynth()</code> for monophonic sounds (one note at a time):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb89"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> synthesizer<span class="op">;</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
-<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>  synthesizer <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">MonoSynth</span>()<span class="op">;</span></span>
-<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
-<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">userStartAudio</span>()<span class="op">;</span></span>
-<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a>  synthesizer<span class="op">.</span><span class="fu">play</span>(<span class="st">&quot;A4&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  <span class="co">// note, volume, start time, duration</span></span>
-<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Note formats</strong>: Use note names like <code>&quot;A4&quot;</code>, <code>&quot;C#5&quot;</code>, or frequencies in Hz like <code>440</code>.</p>
-</section>
-<section id="playing-multiple-notes" class="level3" data-number="17.3.2">
-<h3 data-number="17.3.2" class="anchored" data-anchor-id="playing-multiple-notes"><span class="header-section-number">17.3.2</span> Playing Multiple Notes</h3>
-<p><code>p5.MonoSynth()</code> can only play one note at a time. For chords or multiple notes, use <code>p5.PolySynth()</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb90"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> polysynth<span class="op">;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb90"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> synthesizer<span class="op">;</span></span>
 <span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
-<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>  polysynth <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">PolySynth</span>()<span class="op">;</span></span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>  synthesizer <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">MonoSynth</span>()<span class="op">;</span></span>
 <span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
 <span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">userStartAudio</span>()<span class="op">;</span></span>
-<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a>  polysynth<span class="op">.</span><span class="fu">play</span>([<span class="st">&quot;C4&quot;</span><span class="op">,</span> <span class="st">&quot;E4&quot;</span><span class="op">,</span> <span class="st">&quot;G4&quot;</span>]<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  <span class="co">// C major chord</span></span>
+<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a>  synthesizer<span class="op">.</span><span class="fu">play</span>(<span class="st">&quot;A4&quot;</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  <span class="co">// note, volume, start time, duration</span></span>
 <span id="cb90-10"><a href="#cb90-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>p5.PolySynth()</code> can play multiple notes simultaneously, but can behave unexpectedly when too many notes are played at once. Try to limit the number of simultaneous notes for best results.</p>
+<p><strong>Note formats</strong>: Use note names like <code>&quot;A4&quot;</code>, <code>&quot;C#5&quot;</code>, or frequencies in Hz like <code>440</code>.</p>
 </section>
-<section id="loading-sound-files-with-preload" class="level3" data-number="17.3.3">
-<h3 data-number="17.3.3" class="anchored" data-anchor-id="loading-sound-files-with-preload"><span class="header-section-number">17.3.3</span> Loading Sound Files with <code>preload()</code></h3>
-<p>Load sound files before the sketch starts so they’re ready to play:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb91"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> soundFile<span class="op">;</span></span>
+<section id="playing-multiple-notes" class="level3" data-number="17.4.2">
+<h3 data-number="17.4.2" class="anchored" data-anchor-id="playing-multiple-notes"><span class="header-section-number">17.4.2</span> Playing Multiple Notes</h3>
+<p><code>p5.MonoSynth()</code> can only play one note at a time. For chords or multiple notes, use <code>p5.PolySynth()</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb91"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> polysynth<span class="op">;</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">preload</span>() {</span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  soundFile <span class="op">=</span> <span class="fu">loadSound</span>(<span class="st">&quot;path/to/sound.mp3&quot;</span>)<span class="op">;</span></span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  polysynth <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">PolySynth</span>()<span class="op">;</span></span>
 <span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
 <span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">userStartAudio</span>()<span class="op">;</span></span>
-<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>  soundFile<span class="op">.</span><span class="fu">play</span>()<span class="op">;</span></span>
+<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>  polysynth<span class="op">.</span><span class="fu">play</span>([<span class="st">&quot;C4&quot;</span><span class="op">,</span> <span class="st">&quot;E4&quot;</span><span class="op">,</span> <span class="st">&quot;G4&quot;</span>]<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  <span class="co">// C major chord</span></span>
 <span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>p5.PolySynth()</code> can play multiple notes simultaneously, but can behave unexpectedly when too many notes are played at once. Try to limit the number of simultaneous notes for best results.</p>
+</section>
+<section id="loading-sound-files-with-preload" class="level3" data-number="17.4.3">
+<h3 data-number="17.4.3" class="anchored" data-anchor-id="loading-sound-files-with-preload"><span class="header-section-number">17.4.3</span> Loading Sound Files with <code>preload()</code></h3>
+<p>Load sound files before the sketch starts so they’re ready to play:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb92"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> soundFile<span class="op">;</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">preload</span>() {</span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>  soundFile <span class="op">=</span> <span class="fu">loadSound</span>(<span class="st">&quot;path/to/sound.mp3&quot;</span>)<span class="op">;</span></span>
+<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
+<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">userStartAudio</span>()<span class="op">;</span></span>
+<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a>  soundFile<span class="op">.</span><span class="fu">play</span>()<span class="op">;</span></span>
+<span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Sound files can be: - <strong>Local files</strong> in the same directory as your sketch - <strong>URLs</strong> from the web</p>
 </section>
-<section id="sound-file-methods" class="level3" data-number="17.3.4">
-<h3 data-number="17.3.4" class="anchored" data-anchor-id="sound-file-methods"><span class="header-section-number">17.3.4</span> Sound File Methods</h3>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb92"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">play</span>()<span class="op">;</span>              <span class="co">// Play from start</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">pause</span>()<span class="op">;</span>             <span class="co">// Pause playback (can resume with play())</span></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">stop</span>()<span class="op">;</span>              <span class="co">// Stop and reset to beginning</span></span>
-<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">loop</span>()<span class="op">;</span>              <span class="co">// Loop indefinitely</span></span>
-<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">setVolume</span>(volume)<span class="op">;</span>   <span class="co">// Set volume (0 to 1)</span></span>
-<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">isPlaying</span>()<span class="op">;</span>         <span class="co">// Check if currently playing (not mentioned in slides)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="sound-file-methods" class="level3" data-number="17.4.4">
+<h3 data-number="17.4.4" class="anchored" data-anchor-id="sound-file-methods"><span class="header-section-number">17.4.4</span> Sound File Methods</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb93"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">play</span>()<span class="op">;</span>              <span class="co">// Play from start</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">pause</span>()<span class="op">;</span>             <span class="co">// Pause playback (can resume with play())</span></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">stop</span>()<span class="op">;</span>              <span class="co">// Stop and reset to beginning</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">loop</span>()<span class="op">;</span>              <span class="co">// Loop indefinitely</span></span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">setVolume</span>(volume)<span class="op">;</span>   <span class="co">// Set volume (0 to 1)</span></span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>soundFile<span class="op">.</span><span class="fu">isPlaying</span>()<span class="op">;</span>         <span class="co">// Check if currently playing (not mentioned in slides)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Finding free sounds</strong>: - <a href="https://freesound.org/">Freesound.org</a> - <a href="https://freemusicarchive.org/">Free Music Archive</a> - <a href="http://soundbible.com/">SoundBible</a></p>
 </section>
 </section>
-<section id="microphone-input" class="level2" data-number="17.4">
-<h2 data-number="17.4" class="anchored" data-anchor-id="microphone-input"><span class="header-section-number">17.4</span> Microphone Input</h2>
+<section id="microphone-input" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="microphone-input"><span class="header-section-number">17.5</span> Microphone Input</h2>
 <p>p5.js can access the microphone to capture audio levels and create reactive visuals or instruments. Keep in mind that microphons in browsers can be a bit finicky (who hasn’t had problems with Zoom/Teams?). For the same reason, the interactive code examples in the slides may sometimes not work properly. You can still copy their code and run it yourself.</p>
-<section id="capturing-audio-level" class="level3" data-number="17.4.1">
-<h3 data-number="17.4.1" class="anchored" data-anchor-id="capturing-audio-level"><span class="header-section-number">17.4.1</span> Capturing Audio Level</h3>
+<section id="capturing-audio-level" class="level3" data-number="17.5.1">
+<h3 data-number="17.5.1" class="anchored" data-anchor-id="capturing-audio-level"><span class="header-section-number">17.5.1</span> Capturing Audio Level</h3>
 <p>Access the microphone to respond to sound:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb93"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> mic<span class="op">;</span></span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
-<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  mic <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">AudioIn</span>()<span class="op">;</span></span>
-<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>  mic<span class="op">.</span><span class="fu">start</span>()<span class="op">;</span></span>
-<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
-<span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> level <span class="op">=</span> mic<span class="op">.</span><span class="fu">getLevel</span>()<span class="op">;</span>  <span class="co">// Returns 0 to 1</span></span>
-<span id="cb93-10"><a href="#cb93-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> size <span class="op">=</span> <span class="fu">map</span>(level<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="cb93-11"><a href="#cb93-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb93-12"><a href="#cb93-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(<span class="dv">255</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
-<span id="cb93-13"><a href="#cb93-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(width <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> height <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> size)<span class="op">;</span></span>
-<span id="cb93-14"><a href="#cb93-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="smoothing-microphone-jitter-with-easing" class="level3" data-number="17.4.2">
-<h3 data-number="17.4.2" class="anchored" data-anchor-id="smoothing-microphone-jitter-with-easing"><span class="header-section-number">17.4.2</span> Smoothing Microphone Jitter with Easing</h3>
-<p>Microphone input is often jittery. Apply easing to smooth it:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb94"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> mic<span class="op">;</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> smoothLevel <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
-<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  mic <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">AudioIn</span>()<span class="op">;</span></span>
-<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>  mic<span class="op">.</span><span class="fu">start</span>()<span class="op">;</span></span>
-<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
-<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> level <span class="op">=</span> mic<span class="op">.</span><span class="fu">getLevel</span>()<span class="op">;</span></span>
-<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>  smoothLevel <span class="op">=</span> <span class="fl">0.9</span> <span class="op">*</span> smoothLevel <span class="op">+</span> <span class="fl">0.1</span> <span class="op">*</span> level<span class="op">;</span>  <span class="co">// Easing formula</span></span>
-<span id="cb94-12"><a href="#cb94-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb94-13"><a href="#cb94-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> size <span class="op">=</span> <span class="fu">map</span>(smoothLevel<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fl">0.3</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span></span>
-<span id="cb94-14"><a href="#cb94-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(width <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> height <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> size)<span class="op">;</span></span>
-<span id="cb94-15"><a href="#cb94-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  mic <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">AudioIn</span>()<span class="op">;</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  mic<span class="op">.</span><span class="fu">start</span>()<span class="op">;</span></span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> level <span class="op">=</span> mic<span class="op">.</span><span class="fu">getLevel</span>()<span class="op">;</span>  <span class="co">// Returns 0 to 1</span></span>
+<span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> size <span class="op">=</span> <span class="fu">map</span>(level<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fl">0.5</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb94-12"><a href="#cb94-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(<span class="dv">255</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span></span>
+<span id="cb94-13"><a href="#cb94-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(width <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> height <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> size)<span class="op">;</span></span>
+<span id="cb94-14"><a href="#cb94-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="smoothing-microphone-jitter-with-easing" class="level3" data-number="17.5.2">
+<h3 data-number="17.5.2" class="anchored" data-anchor-id="smoothing-microphone-jitter-with-easing"><span class="header-section-number">17.5.2</span> Smoothing Microphone Jitter with Easing</h3>
+<p>Microphone input is often jittery. Apply easing to smooth it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb95"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> mic<span class="op">;</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> smoothLevel <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a>  mic <span class="op">=</span> <span class="kw">new</span> p5<span class="op">.</span><span class="fu">AudioIn</span>()<span class="op">;</span></span>
+<span id="cb95-6"><a href="#cb95-6" aria-hidden="true" tabindex="-1"></a>  mic<span class="op">.</span><span class="fu">start</span>()<span class="op">;</span></span>
+<span id="cb95-7"><a href="#cb95-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb95-8"><a href="#cb95-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-9"><a href="#cb95-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb95-10"><a href="#cb95-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> level <span class="op">=</span> mic<span class="op">.</span><span class="fu">getLevel</span>()<span class="op">;</span></span>
+<span id="cb95-11"><a href="#cb95-11" aria-hidden="true" tabindex="-1"></a>  smoothLevel <span class="op">=</span> <span class="fl">0.9</span> <span class="op">*</span> smoothLevel <span class="op">+</span> <span class="fl">0.1</span> <span class="op">*</span> level<span class="op">;</span>  <span class="co">// Easing formula</span></span>
+<span id="cb95-12"><a href="#cb95-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb95-13"><a href="#cb95-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> size <span class="op">=</span> <span class="fu">map</span>(smoothLevel<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="fl">0.3</span><span class="op">,</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span></span>
+<span id="cb95-14"><a href="#cb95-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(width <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> height <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> size)<span class="op">;</span></span>
+<span id="cb95-15"><a href="#cb95-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
 </section>
-<section id="quick-reference" class="level1" data-number="18">
-<h1 data-number="18"><span class="header-section-number">18</span> Quick Reference</h1>
+<section id="debugging" class="level1" data-number="18">
+<h1 data-number="18"><span class="header-section-number">18</span> Debugging</h1>
+<blockquote class="blockquote">
+<p><strong>Lecture 7</strong></p>
+</blockquote>
+<p>Debugging is the process of finding and fixing problems in your code. The most important part is to work systematically: test one idea at a time, observe what changes, and avoid random edits.</p>
+<section id="practical-debugging-workflow" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="practical-debugging-workflow"><span class="header-section-number">18.1</span> Practical Debugging Workflow</h2>
+<ol type="1">
+<li>Reproduce the bug consistently.</li>
+<li>Reduce the sketch to a small example.</li>
+<li>Check the browser console for errors first.</li>
+<li>Log key variables with <code>console.log()</code>.</li>
+<li>Fix one issue at a time and re-test.</li>
+<li>Remove temporary logs when done.</li>
+</ol>
+</section>
+<section id="common-bug-types" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="common-bug-types"><span class="header-section-number">18.2</span> Common Bug Types</h2>
+<ul>
+<li><strong>No output:</strong> often a syntax error or misspelled function name.</li>
+<li><strong>Scope problems:</strong> value defined in one place but used elsewhere.</li>
+<li><strong>Loop mistakes:</strong> off-by-one boundaries (<code>&lt;</code> vs <code>&lt;=</code>).</li>
+<li><strong><code>undefined</code>:</strong> missing value or wrong property name.</li>
+<li><strong><code>NaN</code>:</strong> invalid numeric operation, often caused by <code>undefined</code>.</li>
+</ul>
+</section>
+<section id="example-focused-logging" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="example-focused-logging"><span class="header-section-number">18.3</span> Example: Focused Logging</h2>
+<p>This pattern helps you inspect values over time while the sketch is running. Keep logs temporary and targeted.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb96"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> x <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> speed <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">240</span>)<span class="op">;</span></span>
+<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>  x <span class="op">+=</span> speed<span class="op">;</span></span>
+<span id="cb96-7"><a href="#cb96-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-8"><a href="#cb96-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Temporary debug output</span></span>
+<span id="cb96-9"><a href="#cb96-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;x:&quot;</span><span class="op">,</span> x<span class="op">,</span> <span class="st">&quot;speed:&quot;</span><span class="op">,</span> speed)<span class="op">;</span></span>
+<span id="cb96-10"><a href="#cb96-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-11"><a href="#cb96-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(x<span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">25</span>)<span class="op">;</span></span>
+<span id="cb96-12"><a href="#cb96-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="objects" class="level1" data-number="19">
+<h1 data-number="19"><span class="header-section-number">19</span> Objects</h1>
+<blockquote class="blockquote">
+<p><strong>Lecture 7</strong></p>
+</blockquote>
+<p>Objects group related values (and optionally functions) into one structure. This is especially useful when you have many similar entities in a sketch.</p>
+<section id="why-objects" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="why-objects"><span class="header-section-number">19.1</span> Why Objects?</h2>
+<ul>
+<li>Keep related data together (<code>x</code>, <code>y</code>, <code>size</code>, <code>speed</code>, etc.).</li>
+<li>Avoid confusing parallel arrays.</li>
+<li>Make update and draw code easier to read.</li>
+</ul>
+</section>
+<section id="object-literal" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="object-literal"><span class="header-section-number">19.2</span> Object Literal</h2>
+<p>An object literal is the most direct way to create one object with named properties.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb97"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> ball <span class="op">=</span> {</span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> <span class="dv">120</span><span class="op">,</span></span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> <span class="dv">160</span><span class="op">,</span></span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">size</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></span>
+<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">speedX</span><span class="op">:</span> <span class="dv">2</span></span>
+<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-8"><a href="#cb97-8" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb97-9"><a href="#cb97-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">250</span>)<span class="op">;</span></span>
+<span id="cb97-10"><a href="#cb97-10" aria-hidden="true" tabindex="-1"></a>  ball<span class="op">.</span><span class="at">x</span> <span class="op">+=</span> ball<span class="op">.</span><span class="at">speedX</span><span class="op">;</span></span>
+<span id="cb97-11"><a href="#cb97-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(ball<span class="op">.</span><span class="at">x</span><span class="op">,</span> ball<span class="op">.</span><span class="at">y</span><span class="op">,</span> ball<span class="op">.</span><span class="at">size</span>)<span class="op">;</span></span>
+<span id="cb97-12"><a href="#cb97-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="arrays-of-objects" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="arrays-of-objects"><span class="header-section-number">19.3</span> Arrays of Objects</h2>
+<p>When you have many similar entities, store objects in an array and loop through them for update and drawing.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb98"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> balls <span class="op">=</span> [</span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">x</span><span class="op">:</span> <span class="dv">80</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span> <span class="dt">size</span><span class="op">:</span> <span class="dv">20</span><span class="op">,</span> <span class="dt">speedX</span><span class="op">:</span> <span class="fl">1.2</span> }<span class="op">,</span></span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>  { <span class="dt">x</span><span class="op">:</span> <span class="dv">160</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="dv">170</span><span class="op">,</span> <span class="dt">size</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">speedX</span><span class="op">:</span> <span class="op">-</span><span class="fl">1.5</span> }</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
+<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">background</span>(<span class="dv">250</span>)<span class="op">;</span></span>
+<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a>  balls<span class="op">.</span><span class="fu">forEach</span>(ball <span class="kw">=&gt;</span> {</span>
+<span id="cb98-10"><a href="#cb98-10" aria-hidden="true" tabindex="-1"></a>    ball<span class="op">.</span><span class="at">x</span> <span class="op">+=</span> ball<span class="op">.</span><span class="at">speedX</span><span class="op">;</span></span>
+<span id="cb98-11"><a href="#cb98-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circle</span>(ball<span class="op">.</span><span class="at">x</span><span class="op">,</span> ball<span class="op">.</span><span class="at">y</span><span class="op">,</span> ball<span class="op">.</span><span class="at">size</span>)<span class="op">;</span></span>
+<span id="cb98-12"><a href="#cb98-12" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb98-13"><a href="#cb98-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="factory-function-pattern" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="factory-function-pattern"><span class="header-section-number">19.4</span> Factory Function Pattern</h2>
+<p>A factory function returns a new object each time it is called, which helps avoid repetitive setup code.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb99"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">createParticle</span>() {</span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> {</span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> <span class="fu">random</span>(width)<span class="op">,</span></span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> <span class="fu">random</span>(height)<span class="op">,</span></span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">size</span><span class="op">:</span> <span class="fu">random</span>(<span class="dv">8</span><span class="op">,</span> <span class="dv">20</span>)<span class="op">,</span></span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">speedY</span><span class="op">:</span> <span class="fu">random</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">3</span>)</span>
+<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb99-8"><a href="#cb99-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="methods-on-objects" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="methods-on-objects"><span class="header-section-number">19.5</span> Methods on Objects</h2>
+<p>Methods are functions stored inside objects. They can use <code>this</code> to access that object’s own properties.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb100"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> player <span class="op">=</span> {</span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></span>
+<span id="cb100-4"><a href="#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">size</span><span class="op">:</span> <span class="dv">32</span><span class="op">,</span></span>
+<span id="cb100-5"><a href="#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">draw</span><span class="op">:</span> <span class="kw">function</span>() {</span>
+<span id="cb100-6"><a href="#cb100-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">circle</span>(<span class="kw">this</span><span class="op">.</span><span class="at">x</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">y</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">size</span>)<span class="op">;</span></span>
+<span id="cb100-7"><a href="#cb100-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb100-8"><a href="#cb100-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+</section>
+<section id="while-foreach-loops" class="level1" data-number="20">
+<h1 data-number="20"><span class="header-section-number">20</span> While &amp; forEach Loops</h1>
+<blockquote class="blockquote">
+<p><strong>Lecture 7</strong></p>
+</blockquote>
+<p>Besides <code>for</code> loops, two useful loop patterns are <code>while</code> and <code>forEach</code>.</p>
+<section id="while-loop" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="while-loop"><span class="header-section-number">20.1</span> <code>while</code> Loop</h2>
+<p>Use <code>while</code> when you do not know in advance exactly how many iterations you need. The example below keeps adding items until the array reaches the target length.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb101"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> circles <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (circles<span class="op">.</span><span class="at">length</span> <span class="op">&lt;</span> <span class="dv">20</span>) {</span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>  circles<span class="op">.</span><span class="fu">push</span>({</span>
+<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> <span class="fu">random</span>(width)<span class="op">,</span></span>
+<span id="cb101-6"><a href="#cb101-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> <span class="fu">random</span>(height)<span class="op">,</span></span>
+<span id="cb101-7"><a href="#cb101-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">size</span><span class="op">:</span> <span class="fu">random</span>(<span class="dv">10</span><span class="op">,</span> <span class="dv">25</span>)</span>
+<span id="cb101-8"><a href="#cb101-8" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
+<span id="cb101-9"><a href="#cb101-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="while-safety-tip" class="level3" data-number="20.1.1">
+<h3 data-number="20.1.1" class="anchored" data-anchor-id="while-safety-tip"><span class="header-section-number">20.1.1</span> <code>while</code> Safety Tip</h3>
+<p>Always make sure the condition can eventually become false. Otherwise you create an infinite loop and the sketch can freeze.</p>
+</section>
+</section>
+<section id="foreach-loop" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="foreach-loop"><span class="header-section-number">20.2</span> <code>forEach</code> Loop</h2>
+<p>Use <code>forEach</code> to run the same logic for every element in an array. This is common when each object needs the same update-and-draw step every frame.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb102"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>particles<span class="op">.</span><span class="fu">forEach</span>(p <span class="kw">=&gt;</span> {</span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>  p<span class="op">.</span><span class="at">y</span> <span class="op">+=</span> p<span class="op">.</span><span class="at">speedY</span><span class="op">;</span></span>
+<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">circle</span>(p<span class="op">.</span><span class="at">x</span><span class="op">,</span> p<span class="op">.</span><span class="at">y</span><span class="op">,</span> p<span class="op">.</span><span class="at">size</span>)<span class="op">;</span></span>
+<span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It is especially useful for arrays of objects and often reads more clearly than index-based loops.</p>
+<hr>
+</section>
+</section>
+<section id="quick-reference" class="level1" data-number="21">
+<h1 data-number="21"><span class="header-section-number">21</span> Quick Reference</h1>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -4162,6 +4339,36 @@ vertical-align: -.125em;
 <td>Print value to console for debugging</td>
 </tr>
 <tr class="even">
+<td></td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN"><code>isNaN()</code></a></td>
+<td>Check whether a value is NaN</td>
+</tr>
+<tr class="odd">
+<td><strong>Data Structures</strong></td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">Object literal <code>{}</code></a></td>
+<td>Group related values in one object</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors">Dot notation <code>obj.key</code></a></td>
+<td>Access or update object properties</td>
+</tr>
+<tr class="odd">
+<td><strong>Iteration</strong></td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for">for loop</a></td>
+<td>Repeat code with a counter and condition</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while">while loop</a></td>
+<td>Repeat while a condition is true</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.forEach()</code></a></td>
+<td>Run a function for each array item</td>
+</tr>
+<tr class="even">
 <td><strong>Constraining</strong></td>
 <td><a href="https://p5js.org/reference/p5/constrain/"><code>constrain()</code></a></td>
 <td>Clamp value between min and max</td>
@@ -4290,8 +4497,8 @@ vertical-align: -.125em;
 </table>
 <hr>
 </section>
-<section id="additional-resources" class="level1" data-number="19">
-<h1 data-number="19"><span class="header-section-number">19</span> Additional Resources</h1>
+<section id="additional-resources" class="level1" data-number="22">
+<h1 data-number="22"><span class="header-section-number">22</span> Additional Resources</h1>
 <ul>
 <li><strong>p5.js Reference</strong>: <a href="https://p5js.org/reference/">https://p5js.org/reference/</a></li>
 <li><strong>p5.js Examples</strong>: <a href="https://p5js.org/examples/">https://p5js.org/examples/</a></li>
