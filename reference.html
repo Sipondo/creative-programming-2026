@@ -2350,8 +2350,15 @@ vertical-align: -.125em;
   <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop"><span class="header-section-number">20.1</span> <code>while</code> Loop</a></li>
   <li><a href="#foreach-loop" id="toc-foreach-loop" class="nav-link" data-scroll-target="#foreach-loop"><span class="header-section-number">20.2</span> <code>forEach</code> Loop</a></li>
   </ul></li>
-  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference"><span class="header-section-number">21</span> Quick Reference</a></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">22</span> Additional Resources</a></li>
+  <li><a href="#data-sources-csv-json-and-apis" id="toc-data-sources-csv-json-and-apis" class="nav-link" data-scroll-target="#data-sources-csv-json-and-apis"><span class="header-section-number">21</span> Data Sources: CSV, JSON, and APIs</a>
+  <ul class="collapse">
+  <li><a href="#choosing-a-data-format" id="toc-choosing-a-data-format" class="nav-link" data-scroll-target="#choosing-a-data-format"><span class="header-section-number">21.1</span> Choosing a Data Format</a></li>
+  <li><a href="#working-with-csv-via-loadtable" id="toc-working-with-csv-via-loadtable" class="nav-link" data-scroll-target="#working-with-csv-via-loadtable"><span class="header-section-number">21.2</span> Working with CSV via <code>loadTable()</code></a></li>
+  <li><a href="#working-with-json-via-loadjson" id="toc-working-with-json-via-loadjson" class="nav-link" data-scroll-target="#working-with-json-via-loadjson"><span class="header-section-number">21.3</span> Working with JSON via <code>loadJSON()</code></a></li>
+  <li><a href="#working-with-apis-live-web-data" id="toc-working-with-apis-live-web-data" class="nav-link" data-scroll-target="#working-with-apis-live-web-data"><span class="header-section-number">21.4</span> Working with APIs (Live Web Data)</a></li>
+  </ul></li>
+  <li><a href="#quick-reference" id="toc-quick-reference" class="nav-link" data-scroll-target="#quick-reference"><span class="header-section-number">22</span> Quick Reference</a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">23</span> Additional Resources</a></li>
   </ul>
 </nav>
 </div>
@@ -4152,8 +4159,142 @@ vertical-align: -.125em;
 <hr>
 </section>
 </section>
-<section id="quick-reference" class="level1" data-number="21">
-<h1 data-number="21"><span class="header-section-number">21</span> Quick Reference</h1>
+<section id="data-sources-csv-json-and-apis" class="level1" data-number="21">
+<h1 data-number="21"><span class="header-section-number">21</span> Data Sources: CSV, JSON, and APIs</h1>
+<blockquote class="blockquote">
+<p><strong>Lecture 8</strong></p>
+</blockquote>
+<p>Lecture 8 introduces data-driven sketches: instead of hardcoding all values directly in your code, you can load and use external data. This is essential for project work where you want to visualise, filter, or react to real information.</p>
+<section id="choosing-a-data-format" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="choosing-a-data-format"><span class="header-section-number">21.1</span> Choosing a Data Format</h2>
+<p>Use different formats for different needs:</p>
+<ul>
+<li><strong>CSV</strong>: best for table-like rows and columns (e.g. survey responses, logs, measurements).</li>
+<li><strong>JSON</strong>: best for nested structures and mixed data types.</li>
+<li><strong>APIs</strong>: best for live, dynamic data from web services.</li>
+</ul>
+<p>You can mix them in one project. For example, a sketch can start with a local CSV and later enrich it with API data.</p>
+</section>
+<section id="working-with-csv-via-loadtable" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="working-with-csv-via-loadtable"><span class="header-section-number">21.2</span> Working with CSV via <code>loadTable()</code></h2>
+<p>CSV data is loaded with <a href="https://p5js.org/reference/p5/loadTable/"><code>loadTable()</code></a>, usually in <code>preload()</code> so the table is available before <code>setup()</code> and <code>draw()</code> begin.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb103"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> table<span class="op">;</span></span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">preload</span>() {</span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>  table <span class="op">=</span> <span class="fu">loadTable</span>(<span class="st">&quot;data/city_temperatures.csv&quot;</span><span class="op">,</span> <span class="st">&quot;csv&quot;</span><span class="op">,</span> <span class="st">&quot;header&quot;</span>)<span class="op">;</span></span>
+<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="why-header-matters" class="level3" data-number="21.2.1">
+<h3 data-number="21.2.1" class="anchored" data-anchor-id="why-header-matters"><span class="header-section-number">21.2.1</span> Why <code>&quot;header&quot;</code> matters</h3>
+<p>If your first row contains column names, use <code>&quot;header&quot;</code>. Then you can access values by readable names like <code>&quot;tempC&quot;</code> instead of numeric column indexes.</p>
+</section>
+<section id="useful-table-methods" class="level3" data-number="21.2.2">
+<h3 data-number="21.2.2" class="anchored" data-anchor-id="useful-table-methods"><span class="header-section-number">21.2.2</span> Useful Table Methods</h3>
+<ul>
+<li><a href="https://p5js.org/reference/p5.Table/getRowCount/"><code>table.getRowCount()</code></a>: number of rows.</li>
+<li><a href="https://p5js.org/reference/p5.Table/getColumnCount/"><code>table.getColumnCount()</code></a>: number of columns.</li>
+<li><a href="https://p5js.org/reference/p5.Table/getColumn/"><code>table.getColumn(name)</code></a>: entire column as array.</li>
+<li><a href="https://p5js.org/reference/p5.Table/getRow/"><code>table.getRow(i)</code></a>: one row object.</li>
+<li><a href="https://p5js.org/reference/p5.TableRow/getString/"><code>row.getString(name)</code></a>: value as text.</li>
+<li><a href="https://p5js.org/reference/p5.TableRow/getNum/"><code>row.getNum(name)</code></a>: value as number.</li>
+</ul>
+</section>
+<section id="typical-csv-workflow" class="level3" data-number="21.2.3">
+<h3 data-number="21.2.3" class="anchored" data-anchor-id="typical-csv-workflow"><span class="header-section-number">21.2.3</span> Typical CSV workflow</h3>
+<ol type="1">
+<li>Load table in <code>preload()</code>.</li>
+<li>Print row/column counts to verify load success.</li>
+<li>Loop through rows.</li>
+<li>Filter rows with conditions.</li>
+<li>Map numeric values to visual properties (size, position, colour, speed).</li>
+</ol>
+</section>
+</section>
+<section id="working-with-json-via-loadjson" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="working-with-json-via-loadjson"><span class="header-section-number">21.3</span> Working with JSON via <code>loadJSON()</code></h2>
+<p>JSON is loaded with <a href="https://p5js.org/reference/p5/loadJSON/"><code>loadJSON()</code></a>. It is ideal when data includes nested objects and arrays.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb104"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> data<span class="op">;</span></span>
+<span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">preload</span>() {</span>
+<span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>  data <span class="op">=</span> <span class="fu">loadJSON</span>(<span class="st">&quot;data/creative_projects.json&quot;</span>)<span class="op">;</span></span>
+<span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="accessing-nested-data" class="level3" data-number="21.3.1">
+<h3 data-number="21.3.1" class="anchored" data-anchor-id="accessing-nested-data"><span class="header-section-number">21.3.1</span> Accessing nested data</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb105"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> firstProject <span class="op">=</span> data<span class="op">.</span><span class="at">projects</span>[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> projectName <span class="op">=</span> firstProject<span class="op">.</span><span class="at">name</span><span class="op">;</span></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> wowScore <span class="op">=</span> firstProject<span class="op">.</span><span class="at">metrics</span><span class="op">.</span><span class="at">wow</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nested paths are common in project settings, game state, and API responses. If a nested key may not exist, check it before use to avoid <code>undefined</code> bugs.</p>
+</section>
+<section id="json-workflow" class="level3" data-number="21.3.2">
+<h3 data-number="21.3.2" class="anchored" data-anchor-id="json-workflow"><span class="header-section-number">21.3.2</span> JSON workflow</h3>
+<ol type="1">
+<li>Load JSON file.</li>
+<li>Inspect the top-level structure (object vs array).</li>
+<li>Identify key paths you need.</li>
+<li>Loop/filter arrays.</li>
+<li>Convert values to visual mappings.</li>
+</ol>
+</section>
+</section>
+<section id="working-with-apis-live-web-data" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="working-with-apis-live-web-data"><span class="header-section-number">21.4</span> Working with APIs (Live Web Data)</h2>
+<p>An API is a URL endpoint that returns data (often JSON). Unlike local files, API data can change every request.</p>
+<section id="static-api-load-in-preload-first-step" class="level3" data-number="21.4.1">
+<h3 data-number="21.4.1" class="anchored" data-anchor-id="static-api-load-in-preload-first-step"><span class="header-section-number">21.4.1</span> Static API load in <code>preload()</code> (first step)</h3>
+<p>If you only need one API request at the start of the sketch, the most beginner-friendly pattern is to load it in <code>preload()</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb106"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> factData<span class="op">;</span></span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">preload</span>() {</span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>  factData <span class="op">=</span> <span class="fu">loadJSON</span>(<span class="st">&quot;https://catfact.ninja/fact&quot;</span>)<span class="op">;</span></span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb106-6"><a href="#cb106-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-7"><a href="#cb106-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb106-8"><a href="#cb106-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></span>
+<span id="cb106-9"><a href="#cb106-9" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(factData<span class="op">.</span><span class="at">fact</span>)<span class="op">;</span></span>
+<span id="cb106-10"><a href="#cb106-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This does not require additional requests because your data is already available when <code>setup()</code> runs.</p>
+</section>
+<section id="callback-request-for-runtime-updates" class="level3" data-number="21.4.2">
+<h3 data-number="21.4.2" class="anchored" data-anchor-id="callback-request-for-runtime-updates"><span class="header-section-number">21.4.2</span> Callback request for runtime updates</h3>
+<p>When you want to request new API data during the sketch (for example on click or key press), use callback-based <code>loadJSON()</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb107"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">requestCatFact</span>() {</span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">loadJSON</span>(</span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;https://catfact.ninja/fact&quot;</span><span class="op">,</span></span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>    data <span class="kw">=&gt;</span> {</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(data<span class="op">.</span><span class="at">fact</span>)<span class="op">;</span></span>
+<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb107-7"><a href="#cb107-7" aria-hidden="true" tabindex="-1"></a>    () <span class="kw">=&gt;</span> {</span>
+<span id="cb107-8"><a href="#cb107-8" aria-hidden="true" tabindex="-1"></a>      <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Request failed&quot;</span>)<span class="op">;</span></span>
+<span id="cb107-9"><a href="#cb107-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb107-10"><a href="#cb107-10" aria-hidden="true" tabindex="-1"></a>  )<span class="op">;</span></span>
+<span id="cb107-11"><a href="#cb107-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb107-12"><a href="#cb107-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-13"><a href="#cb107-13" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">mousePressed</span>() {</span>
+<span id="cb107-14"><a href="#cb107-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">requestCatFact</span>()<span class="op">;</span></span>
+<span id="cb107-15"><a href="#cb107-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="api-safety-habits-for-beginners" class="level3" data-number="21.4.3">
+<h3 data-number="21.4.3" class="anchored" data-anchor-id="api-safety-habits-for-beginners"><span class="header-section-number">21.4.3</span> API safety habits for beginners</h3>
+<ul>
+<li>Always show a <strong>loading state</strong>.</li>
+<li>Always handle <strong>errors</strong> (error callback).</li>
+<li>Log one example response first, then build visuals.</li>
+<li>Keep API-driven sketches simple at first (one or two values).</li>
+</ul>
+</section>
+<section id="loadjson-patterns-for-apis" class="level3" data-number="21.4.4">
+<h3 data-number="21.4.4" class="anchored" data-anchor-id="loadjson-patterns-for-apis"><span class="header-section-number">21.4.4</span> <code>loadJSON()</code> patterns for APIs</h3>
+<ul>
+<li>Start with <code>preload()</code> for single, static startup requests.</li>
+<li>Use <code>loadJSON(url, successCallback, errorCallback)</code> for user-triggered runtime requests.</li>
+<li>Keep callback logic short: parse data, store values, update status text.</li>
+<li>If requests can fail, always show fallback text/state in your sketch.</li>
+</ul>
+<hr>
+</section>
+</section>
+</section>
+<section id="quick-reference" class="level1" data-number="22">
+<h1 data-number="22"><span class="header-section-number">22</span> Quick Reference</h1>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -4344,151 +4485,206 @@ vertical-align: -.125em;
 <td>Check whether a value is NaN</td>
 </tr>
 <tr class="odd">
+<td><strong>Data Loading</strong></td>
+<td><a href="https://p5js.org/reference/p5/loadTable/"><code>loadTable()</code></a></td>
+<td>Load CSV/TSV table from file or URL</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://p5js.org/reference/p5/loadJSON/"><code>loadJSON()</code></a></td>
+<td>Load JSON object/array from file or URL</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="https://p5js.org/reference/p5.Table/getRowCount/"><code>table.getRowCount()</code></a></td>
+<td>Get number of rows in a table</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://p5js.org/reference/p5.Table/getColumnCount/"><code>table.getColumnCount()</code></a></td>
+<td>Get number of columns in a table</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="https://p5js.org/reference/p5.Table/getColumn/"><code>table.getColumn()</code></a></td>
+<td>Get all values from one column</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://p5js.org/reference/p5.Table/getRow/"><code>table.getRow()</code></a></td>
+<td>Get one row by index</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="https://p5js.org/reference/p5.TableRow/getString/"><code>row.getString()</code></a></td>
+<td>Read row value as string</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://p5js.org/reference/p5.TableRow/getNum/"><code>row.getNum()</code></a></td>
+<td>Read row value as number</td>
+</tr>
+<tr class="odd">
+<td><strong>Web APIs</strong></td>
+<td><a href="https://p5js.org/reference/p5/loadJSON/"><code>loadJSON()</code></a></td>
+<td>Request JSON from API endpoint URL</td>
+</tr>
+<tr class="even">
+<td></td>
+<td><a href="https://p5js.org/reference/p5/loadJSON/"><code>loadJSON(url)</code> in <code>preload()</code></a></td>
+<td>Load API JSON once before sketch starts</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><a href="https://p5js.org/reference/p5/loadJSON/"><code>loadJSON(url, success, error)</code></a></td>
+<td>Handle success and failure callbacks for runtime requests</td>
+</tr>
+<tr class="even">
 <td><strong>Data Structures</strong></td>
 <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">Object literal <code>{}</code></a></td>
 <td>Group related values in one object</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_accessors">Dot notation <code>obj.key</code></a></td>
 <td>Access or update object properties</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Iteration</strong></td>
 <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for">for loop</a></td>
 <td>Repeat code with a counter and condition</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while">while loop</a></td>
 <td>Repeat while a condition is true</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach"><code>Array.forEach()</code></a></td>
 <td>Run a function for each array item</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Constraining</strong></td>
 <td><a href="https://p5js.org/reference/p5/constrain/"><code>constrain()</code></a></td>
 <td>Clamp value between min and max</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/min/"><code>min()</code></a></td>
 <td>Return smaller of two values</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/max/"><code>max()</code></a></td>
 <td>Return larger of two values</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/map/"><code>map()</code></a></td>
 <td>Rescale value from one range to another</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><strong>Sound</strong></td>
 <td><a href="https://p5js.org/reference/p5/userStartAudio/"><code>userStartAudio()</code></a></td>
 <td>Enable audio (call in user event)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.sound/p5.MonoSynth/"><code>new p5.MonoSynth()</code></a></td>
 <td>Create single-note synthesizer</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.sound/p5.PolySynth/"><code>new p5.PolySynth()</code></a></td>
 <td>Create multi-note synthesizer</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.MonoSynth/play/"><code>synthesizer.play()</code></a></td>
 <td>Play a note</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/loadSound/"><code>loadSound()</code></a></td>
 <td>Load sound file from URL or local file</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/play/"><code>soundFile.play()</code></a></td>
 <td>Play sound file from beginning</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/pause/"><code>soundFile.pause()</code></a></td>
 <td>Pause sound file</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/stop/"><code>soundFile.stop()</code></a></td>
 <td>Stop and reset sound file</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/loop/"><code>soundFile.loop()</code></a></td>
 <td>Loop sound file indefinitely</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.SoundFile/setVolume/"><code>soundFile.setVolume()</code></a></td>
 <td>Set volume (0 to 1)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.sound/p5.AudioIn/"><code>new p5.AudioIn()</code></a></td>
 <td>Create microphone input object</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.AudioIn/start/"><code>audioin.start()</code></a></td>
 <td>Start listening to microphone</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5.AudioIn/getLevel/"><code>audioin.getLevel()</code></a></td>
 <td>Get current audio level (0 to 1)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Events</strong></td>
 <td><a href="https://p5js.org/reference/p5/mouseReleased/"><code>mouseReleased()</code></a></td>
 <td>Runs when mouse button is released</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseClicked/"><code>mouseClicked()</code></a></td>
 <td>Runs when mouse button is clicked</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseMoved/"><code>mouseMoved()</code></a></td>
 <td>Runs when mouse moves</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseDragged/"><code>mouseDragged()</code></a></td>
 <td>Runs when mouse moves while pressed</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/mouseWheel/"><code>mouseWheel()</code></a></td>
 <td>Runs when mouse wheel is scrolled</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/keyPressed/"><code>keyPressed()</code></a></td>
 <td>Runs when a key is pressed</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/keyReleased/"><code>keyReleased()</code></a></td>
 <td>Runs when a key is released</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td></td>
 <td><a href="https://p5js.org/reference/p5/keyTyped/"><code>keyTyped()</code></a></td>
 <td>Runs when a key is typed</td>
@@ -4497,8 +4693,8 @@ vertical-align: -.125em;
 </table>
 <hr>
 </section>
-<section id="additional-resources" class="level1" data-number="22">
-<h1 data-number="22"><span class="header-section-number">22</span> Additional Resources</h1>
+<section id="additional-resources" class="level1" data-number="23">
+<h1 data-number="23"><span class="header-section-number">23</span> Additional Resources</h1>
 <ul>
 <li><strong>p5.js Reference</strong>: <a href="https://p5js.org/reference/">https://p5js.org/reference/</a></li>
 <li><strong>p5.js Examples</strong>: <a href="https://p5js.org/examples/">https://p5js.org/examples/</a></li>
