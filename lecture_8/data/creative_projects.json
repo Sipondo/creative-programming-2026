@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "name": "Mood Garden",
+      "team": ["Axel", "Line"],
+      "tags": ["visual", "interactive"],
+      "metrics": {"complexity": 6, "wow": 7}
+    },
+    {
+      "name": "Sound Trails",
+      "team": ["Kirstine", "Thomas"],
+      "tags": ["audio", "motion"],
+      "metrics": {"complexity": 8, "wow": 9}
+    },
+    {
+      "name": "Data Bubbles",
+      "team": ["Ties"],
+      "tags": ["data", "visual"],
+      "metrics": {"complexity": 7, "wow": 8}
+    },
+    {
+      "name": "Sprite Stories",
+      "team": ["Nina", "Jonas"],
+      "tags": ["game", "narrative"],
+      "metrics": {"complexity": 5, "wow": 7}
+    }
+  ]
+}
