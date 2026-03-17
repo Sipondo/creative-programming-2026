@@ -723,8 +723,33 @@
 </div>
 </div>
 </div>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Frawcdn.githack.com%2FSipondo%2Fcreative-programming-2026%2Fdf6b6d1633ee1b135567fc60d620bb95a7eddf05%2Flecture_8%2Fcode%2F0850_assignment_base.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
 
-<img data-src="media/denmark.jpg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section></section>
 <section>
 <section id="json" class="title-slide slide level1 center">
 <h1>JSON</h1>
