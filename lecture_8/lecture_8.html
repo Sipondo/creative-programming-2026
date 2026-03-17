@@ -638,9 +638,9 @@
 <section id="filtering-rows" class="slide level2">
 <h2>Filtering rows</h2>
 <ul>
-<li>In real projects, we rarely use all rows at once</li>
-<li>We often filter by category, city, date, or threshold</li>
+<li>In real projects, we rarely use all rows at once; we filter</li>
 <li>Filtering is conditional logic inside a loop</li>
+<li>Alternatively, use <code>table.findRows(value, column)</code> to get matching rows</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Frawcdn.githack.com%2FSipondo%2Fcreative-programming-2026%2Fdf6b6d1633ee1b135567fc60d620bb95a7eddf05%2Flecture_8%2Fcode%2F0801_csv_filter_city.js" title="P5.js Applet"></iframe>
@@ -867,6 +867,7 @@
 <ul>
 <li>JSON arrays are arrays, so we can loop through them</li>
 <li>As seen last week, either use <code>for</code> or <code>forEach</code></li>
+<li><code>array.includes(value)</code> checks whether an array contains a value</li>
 </ul>
     <div class="p5-frame">
       <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Frawcdn.githack.com%2FSipondo%2Fcreative-programming-2026%2Fdf6b6d1633ee1b135567fc60d620bb95a7eddf05%2Flecture_8%2Fcode%2F0812_json_interactive_tags.js" title="P5.js Applet"></iframe>
@@ -894,19 +895,6 @@
     }
     </style>
     
-<!-- ## JSON assignment
-
-::: {.callout-tip}
-## Class Assignment: JSON Playground
-
-1. Load a JSON file with an array of objects.
-2. Display at least three fields from each object.
-3. Use one nested field in your logic or visual mapping.
-4. Add key controls to filter or switch views.
-5. Make one visual representation (bars, circles, layout, etc.).
-
-:::
- -->
 </section></section>
 <section>
 <section id="apis" class="title-slide slide level1 center">
