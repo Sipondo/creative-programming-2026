@@ -18,4 +18,4 @@ Please find the Creative Programming coding reference here: [reference](https://
 - Lecture 5 (Sound): [slides](https://rawcdn.githack.com/Sipondo/creative-programming-2026/9c89caea3deb542429c90b71a558cf4e828b95b3/lecture_5/lecture_5.html) [pdf backup](/lecture_5/lecture_5.pdf) [code](/lecture_5/code)
 - Lecture 6 was the first milestone
 - Lecture 7 (Data Representation): [slides](https://rawcdn.githack.com/Sipondo/creative-programming-2026/6749e9ee8c43b100fef26566c643b88cc79337fb/lecture_7/lecture_7.html) [pdf backup](/lecture_7/lecture_7.pdf) [code](/lecture_7/code)
-- Lecture 8 (Scaling Data): [slides](https://rawcdn.githack.com/Sipondo/creative-programming-2026/4b351a5bf9f8523c46fbccac10841d67f8947ad6/lecture_8/lecture_8.html) [pdf backup](/lecture_8/lecture_8.pdf) [code](/lecture_8/code) [data](/lecture_8/data)
+- Lecture 8 (Scaling Data): [slides](https://rawcdn.githack.com/Sipondo/creative-programming-2026/0a246d1c084d4c878b3787702bd4c4d1d600bacb/lecture_8/lecture_8.html) [pdf backup](/lecture_8/lecture_8.pdf) [code](/lecture_8/code) [data](/lecture_8/data)
