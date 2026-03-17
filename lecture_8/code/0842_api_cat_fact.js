@@ -42,7 +42,7 @@ function fetchCatFact() {
     "https://catfact.ninja/fact",
     (data) => {
       // Code on success
-      catFact = data.fact || "No fact found.";
+      catFact = data.fact;
       statusText = "Loaded";
     },
     () => {
