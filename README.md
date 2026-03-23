@@ -7,7 +7,7 @@ Content will be released progressively as the course advances. Lecture slides ar
 
 # Reference
 
-Please find the Creative Programming coding reference here: [reference](https://rawcdn.githack.com/Sipondo/creative-programming-2026/635503b139c8f5c9fe556f8675f29f445d39be7e/reference.html)
+Please find the Creative Programming coding reference here: [reference](https://rawcdn.githack.com/Sipondo/creative-programming-2026/26a1c71f185cd39d2cf98af4f8a556257921d5be/reference.html)
 
 # Lectures
 
