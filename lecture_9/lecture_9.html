@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture_9_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture_9_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture_9_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture_9_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture_9_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture_9_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture_9_files/libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.35">
+
+  <title>Creative Programming: Data Visualisation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture_9_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture_9_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="lecture_9_files/libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="lecture_9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture_9_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture_9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture_9_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture_9_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="lecture_9_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Creative Programming:<br>Data Visualisation</h1>
+  <p class="subtitle">Lecture 9</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section><section id="TOC">
+    <nav id="toc-nav" role="doc-toc" style="padding-top: 5px; padding-bottom: 5px;">
+                <h3 id="toc-title">Table of contents</h3>
+                <ul>
+                
+                <li><a href="#/revisiting-slides" id="/toc-revisiting-slides">(Re)visiting slides?</a></li>
+                <li><a href="#/course-stuff" id="/toc-course-stuff">Course stuff</a></li>
+                <li><a href="#/todays-code" id="/toc-todays-code">Today’s code</a></li>
+                <li><a href="#/visualising-data" id="/toc-visualising-data">Visualising Data</a>
+                <ul>
+                <li><a href="#/recap-data-sources" id="/toc-recap-data-sources">Recap: Data Sources</a></li>
+                <li><a href="#/why-visualise" id="/toc-why-visualise">Why visualise?</a></li>
+                <li><a href="#/visualisation-in-the-real-world" id="/toc-visualisation-in-the-real-world">Visualisation in the real world</a></li>
+                <li><a href="#/the-core-idea" id="/toc-the-core-idea">The core idea</a></li>
+                <li><a href="#/the-building-blocks" id="/toc-the-building-blocks">The building blocks</a></li>
+                <li><a href="#/bar-charts" id="/toc-bar-charts">Bar charts</a></li>
+                <li><a href="#/key-formula-positioning-bars" id="/toc-key-formula-positioning-bars">Key formula: positioning bars</a></li>
+                <li><a href="#/adding-colour-as-a-second-dimension" id="/toc-adding-colour-as-a-second-dimension">Adding colour as a second dimension</a></li>
+                <li><a href="#/key-concept-flipping-y" id="/toc-key-concept-flipping-y">Key concept: flipping y</a></li>
+                <li><a href="#/line-charts" id="/toc-line-charts">Line charts</a></li>
+                <li><a href="#/chart-design-tips" id="/toc-chart-design-tips">Chart design tips</a></li>
+                <li><a href="#/chart-builders" id="/toc-chart-builders">Chart builders</a></li>
+                </ul></li>
+                <li><a href="#/more-charts-and-techniques" id="/toc-more-charts-and-techniques">More Charts and Techniques</a>
+                <ul>
+                <li><a href="#/hover-detection-for-charts" id="/toc-hover-detection-for-charts">Hover detection for charts</a></li>
+                <li><a href="#/scatter-plots" id="/toc-scatter-plots">Scatter plots</a></li>
+                <li><a href="#/pie-charts" id="/toc-pie-charts">Pie charts</a></li>
+                <li><a href="#/key-formula-values-to-angles" id="/toc-key-formula-values-to-angles">Key formula: values to angles</a></li>
+                <li><a href="#/a-word-of-caution-on-pie-charts" id="/toc-a-word-of-caution-on-pie-charts">A word of caution on pie charts</a></li>
+                <li><a href="#/multiple-mappings" id="/toc-multiple-mappings">Multiple mappings</a></li>
+                <li><a href="#/using-csv-data-from-last-week" id="/toc-using-csv-data-from-last-week">Using CSV data from last week</a></li>
+                <li><a href="#/animating-charts-with-lerp" id="/toc-animating-charts-with-lerp">Animating charts with lerp</a></li>
+                <li><a href="#/adding-data-on-the-fly" id="/toc-adding-data-on-the-fly">Adding data on the fly</a></li>
+                <li><a href="#/finding-data" id="/toc-finding-data">Finding data</a></li>
+                <li><a href="#/find-your-data" id="/toc-find-your-data">Find your data</a></li>
+                </ul></li>
+                <li><a href="#/infographics" id="/toc-infographics">Infographics</a>
+                <ul>
+                <li><a href="#/what-is-an-infographic" id="/toc-what-is-an-infographic">What is an infographic?</a></li>
+                <li><a href="#/pictogram-charts" id="/toc-pictogram-charts">Pictogram charts</a></li>
+                <li><a href="#/progress-and-gauges" id="/toc-progress-and-gauges">Progress and gauges</a></li>
+                <li><a href="#/key-formula-circular-gauge" id="/toc-key-formula-circular-gauge">Key formula: circular gauge</a></li>
+                <li><a href="#/composing-an-infographic" id="/toc-composing-an-infographic">Composing an infographic</a></li>
+                <li><a href="#/example-danish-cities-from-csv" id="/toc-example-danish-cities-from-csv">Example: Danish cities from CSV</a></li>
+                <li><a href="#/example-live-weather-dashboard" id="/toc-example-live-weather-dashboard">Example: live weather dashboard</a></li>
+                <li><a href="#/infographic-design-tips" id="/toc-infographic-design-tips">Infographic design tips</a></li>
+                <li><a href="#/data-poster" id="/toc-data-poster">Data poster</a></li>
+                <li><a href="#/summary" id="/toc-summary">Summary</a></li>
+                </ul></li>
+                </ul>
+    </nav>
+    <script>
+        (function () {
+            var nav = document.getElementById('toc-nav');
+            if (nav) {
+                var topUl = nav.querySelector('ul');
+                if (topUl) {
+                    // Find all direct child li elements
+                    var topLevelItems = Array.from(topUl.children).filter(function (el) { return el.tagName === 'LI'; });
+
+                    // Keep only items that have nested ul (true sections with subsections)
+                    topLevelItems.forEach(function (li) {
+                        var hasNestedUl = li.querySelector('ul');
+                        if (hasNestedUl) {
+                            // This is a true section - remove its nested ul
+                            hasNestedUl.remove();
+                        } else {
+                            // This is a subsection promoted to top level - remove it
+                            li.remove();
+                        }
+                    });
+                }
+            }
+        })();
+    </script>
+</section>
+<section class="slide level2">
+
+<aside class="notes">
+<p>The first slide of every lecture introduces what we can make with the things we learn this week! This week we are turning data into visuals: bar charts, line charts, scatter plots, pie charts, and infographics.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- Dynamic title page -->
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0909_title_viz.js&amp;viewMode=1" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="revisiting-slides" class="slide level2">
+<h2>(Re)visiting slides?</h2>
+<aside class="notes">
+<p>This is where you can find the narration notes. Some slides don’t have notes, but important technical slides usually do.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>You can jump to any slide with the menu to the (bottom) left.</p>
+<div class="columns" style="display: flex !important; height: 90%;">
+<div class="column" style="display: flex; justify-content: center; align-items: bottom;">
+<p>Did you miss a slide or want to revisit? Open the narration tab while studying to get an explanation of difficult slides.</p>
+</div><div class="column" style="display: flex; justify-content: center; align-items: bottom;">
+<p><img data-src="media/arrow.png"></p>
+</div></div>
+</section>
+<section id="course-stuff" class="slide level2">
+<h2>Course stuff</h2>
+<ul>
+<li>Exercise 4 hand-in was missing; deadline extended by 1 week</li>
+<li>We will be extra careful with the breaks today</li>
+<li>Schedule of milestone 2 will be announced soon by Thomas</li>
+</ul>
+</section>
+<section id="todays-code" class="slide level2">
+<h2>Today’s code</h2>
+<ul>
+<li>Today we will be going over a lot more <em>advanced</em> code
+<ul>
+<li>Don’t worry if you don’t understand every line!</li>
+<li>Focus on the overall patterns and techniques</li>
+<li>Hopefully some of these examples will inspire you/help you with your project</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<section id="visualising-data" class="title-slide slide level1 center">
+<h1>Visualising Data</h1>
+
+</section>
+<section id="recap-data-sources" class="slide level2">
+<h2>Recap: Data Sources</h2>
+<ul>
+<li>Last week we learned how to load data into our sketches
+<ul>
+<li>CSV for tabular data</li>
+<li>JSON for nested structures</li>
+<li>APIs for live data</li>
+</ul></li>
+<li>This week: how to <strong>show</strong> that data visually</li>
+</ul>
+</section>
+<section id="why-visualise" class="slide level2">
+<h2>Why visualise?</h2>
+<ul>
+<li>Numbers alone are hard to interpret</li>
+<li>Visualisation reveals patterns, trends, and outliers</li>
+<li>It makes data accessible and engaging</li>
+<li>In creative programming, the visual IS the output</li>
+</ul>
+</section>
+<section id="visualisation-in-the-real-world" class="slide level2">
+<h2>Visualisation in the real world</h2>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="media/plastic.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="media/dashboard.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="the-core-idea" class="slide level2">
+<h2>The core idea</h2>
+<aside class="notes">
+<p>This is the most important concept of the lecture. Data visualisation is about mapping values to visual properties. You already know <code>map()</code> from earlier weeks — here it becomes the main tool. Every chart type in this lecture is just a different way of mapping data to shapes, positions, sizes, colours, and angles.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Data visualisation = mapping values to visual properties</li>
+<li><code>map()</code> is the key function for this</li>
+<li>One data value can drive one or more visual properties:
+<ul>
+<li><strong>Position</strong>: x, y</li>
+<li><strong>Size</strong>: width, height, diameter</li>
+<li><strong>Colour</strong>: r, g, b, alpha</li>
+<li><strong>Angle</strong>: rotation, arc size</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-building-blocks" class="slide level2">
+<h2>The building blocks</h2>
+<aside class="notes">
+<p>Every chart is built from the same primitives you have been using all semester. The only new idea is that these properties are driven by data values instead of being hard-coded. No new functions needed!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Every chart is built from things we already know
+<ul>
+<li>Shapes: <code>rect()</code>, <code>circle()</code>, <code>line()</code>, <code>image()</code></li>
+<li>Position: x, y coordinates</li>
+<li>Colour: <code>fill()</code>, <code>stroke()</code></li>
+<li>Text: <code>text()</code>, labels, titles</li>
+</ul></li>
+<li>The difference: these properties are <strong>driven by data</strong></li>
+</ul>
+</section>
+<section id="bar-charts" class="slide level2">
+<h2>Bar charts</h2>
+<aside class="notes">
+<p>The idea is to loop through an array and draw a <code>rect()</code> for each value. The height of each bar is proportional to the data value, scaled to fit the canvas. This is the simplest chart type and a good place to start.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Each bar represents a category, the height represents a value</li>
+<li>Loop through an array and draw a <code>rect()</code> per value</li>
+<li>Labels and values are drawn with <code>text()</code></li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0900_simple_bar_chart.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="key-formula-positioning-bars" class="slide level2">
+<h2>Key formula: positioning bars</h2>
+<aside class="notes">
+<p>This formula works for any number of bars. The <code>i * (barWidth + spacing)</code> part spaces them out evenly. Drawing from <code>bottomY - barHeight</code> makes bars grow upward from the bottom, which is what we expect in a chart.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Calculate each bar’s x position:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href=""></a><span class="kw">let</span> x <span class="op">=</span> startX <span class="op">+</span> i <span class="op">*</span> (barWidth <span class="op">+</span> spacing)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Draw from the bottom up:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href=""></a><span class="kw">let</span> barHeight <span class="op">=</span> values[i] <span class="op">*</span> scale<span class="op">;</span></span>
+<span id="cb2-2"><a href=""></a><span class="fu">rect</span>(x<span class="op">,</span> bottomY <span class="op">-</span> barHeight<span class="op">,</span> barWidth<span class="op">,</span> barHeight)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="adding-colour-as-a-second-dimension" class="slide level2">
+<h2>Adding colour as a second dimension</h2>
+<aside class="notes">
+<p>Here, <code>map()</code> turns data values into colour components, so higher values appear warmer and lower values appear cooler. This adds a visual dimension without adding complexity — the viewer gets two pieces of information from the same bar.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Use <code>map()</code> to convert values into colours</li>
+<li>Higher values = warmer colours, lower values = cooler colours</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0901_colored_bars.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="key-concept-flipping-y" class="slide level2">
+<h2>Key concept: flipping y</h2>
+<aside class="notes">
+<p>This trips up a lot of people. Remember that in p5.js, y = 0 is the top of the canvas. In charts we want higher values to appear higher on screen, so we reverse the output range in <code>map()</code>. If your chart looks upside down, this is probably why.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>In p5.js, y = 0 is the <strong>top</strong> of the canvas</li>
+<li>In charts, higher values should be <strong>higher</strong> on screen</li>
+<li><code>map()</code> handles this by reversing the output range:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href=""></a><span class="kw">let</span> y <span class="op">=</span> <span class="fu">map</span>(value<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> maxVal<span class="op">,</span> bottomY<span class="op">,</span> topY)<span class="op">;</span></span>
+<span id="cb3-2"><a href=""></a><span class="co">//                              high y → low y</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="line-charts" class="slide level2">
+<h2>Line charts</h2>
+<aside class="notes">
+<p>Line charts use <code>line()</code> segments between consecutive data points. Grid lines help the viewer estimate values. Line charts are best for showing trends over a sequence like time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Shows how values change over a sequence (often time)</li>
+<li>Draw <code>line()</code> segments between consecutive data points</li>
+<li><code>map()</code> converts values to screen positions</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0902_line_chart.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="chart-design-tips" class="slide level2">
+<h2>Chart design tips</h2>
+<ul>
+<li>Always label your axes and add a title</li>
+<li>Use colour purposefully, not decoratively</li>
+<li>Start bar charts at zero to avoid misleading proportions</li>
+<li>Keep it simple: one chart, one message</li>
+<li>Use <code>textAlign()</code> to position labels cleanly</li>
+</ul>
+</section>
+<section id="chart-builders" class="slide level2">
+<h2>Chart builders</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Class Assignment: Build a Chart</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Pick either a bar chart or line chart and copy the code from the earlier slides.</li>
+<li>Find or generate at least 6 data points with labels. You can make up your own data!</li>
+<li>Draw the chart with proper axes, labels, and a title</li>
+<li>Add colour mapping to encode an extra dimension (e.g.&nbsp;warm/cool colours for high/low values)</li>
+</ol>
+</div>
+</div>
+</div>
+
+<img data-src="media/chartbuilding.jpeg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="more-charts-and-techniques" class="title-slide slide level1 center">
+<h1>More Charts and Techniques</h1>
+
+</section>
+<section id="hover-detection-for-charts" class="slide level2">
+<h2>Hover detection for charts</h2>
+<aside class="notes">
+<p>These are the same collision patterns from earlier lectures, just applied to chart elements. For bars you check a bounding box, for dots you check distance. Nothing new here, but worth keeping in mind as you build your visualisations.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>For chart interactivity, hover detection is really neat!</li>
+<li>It can be useful for long conditions to store them in a variable for readability</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href=""></a><span class="co">// For rectangles (bars):</span></span>
+<span id="cb4-2"><a href=""></a><span class="kw">let</span> isHovered <span class="op">=</span> mouseX <span class="op">&gt;</span> x <span class="op">&amp;&amp;</span> mouseX <span class="op">&lt;</span> x <span class="op">+</span> barWidth <span class="op">&amp;&amp;</span></span>
+<span id="cb4-3"><a href=""></a>                mouseY <span class="op">&gt;</span> barTop <span class="op">&amp;&amp;</span> mouseY <span class="op">&lt;</span> bottomY<span class="op">;</span></span>
+<span id="cb4-4"><a href=""></a></span>
+<span id="cb4-5"><a href=""></a><span class="co">// For circles (scatter plots):</span></span>
+<span id="cb4-6"><a href=""></a><span class="kw">let</span> isHovered <span class="op">=</span> <span class="fu">dist</span>(mouseX<span class="op">,</span> mouseY<span class="op">,</span> cx<span class="op">,</span> cy) <span class="op">&lt;</span> radius<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>The <code>dist()</code> function calculates the distance between two points</li>
+</ul>
+</section>
+<section id="scatter-plots" class="slide level2">
+<h2>Scatter plots</h2>
+<aside class="notes">
+<p>Each data point has two values that get mapped to x and y positions. This example includes hover detection using <code>dist()</code> — when the mouse is close enough to a point, extra info appears. Try hovering over the dots to see it in action.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Shows the relationship between two variables</li>
+<li>Each point has an x and a y value mapped to canvas positions</li>
+<li>Great for seeing correlations and clusters</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0903_scatter_plot.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="pie-charts" class="slide level2">
+<h2>Pie charts</h2>
+<aside class="notes">
+<p>The <code>arc()</code> function in PIE mode draws each slice. Each value is converted into an angle proportional to its share of the total. The angles accumulate so each slice starts where the previous one ended. Placing labels uses <code>cos()</code> and <code>sin()</code> to calculate positions from the angle — the same trigonometry from earlier weeks.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Shows parts of a whole as slices of a circle</li>
+<li>Use <code>arc()</code> with PIE mode to draw each slice</li>
+<li>Angles accumulate so slices connect seamlessly</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0904_pie_chart.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="key-formula-values-to-angles" class="slide level2">
+<h2>Key formula: values to angles</h2>
+<ul>
+<li>Remember to set <code>angleMode(DEGREES)</code> in <code>setup()</code>!</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href=""></a><span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-2"><a href=""></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> values<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb5-3"><a href=""></a>  total <span class="op">+=</span> values[i]<span class="op">;</span></span>
+<span id="cb5-4"><a href=""></a>}</span>
+<span id="cb5-5"><a href=""></a></span>
+<span id="cb5-6"><a href=""></a><span class="kw">let</span> sliceAngle <span class="op">=</span> <span class="fu">map</span>(values[i]<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> total<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">360</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>The full circle is 360 degrees</li>
+<li>Each slice gets a fraction of the circle</li>
+</ul>
+</section>
+<section id="a-word-of-caution-on-pie-charts" class="slide level2">
+<h2>A word of caution on pie charts</h2>
+<aside class="notes">
+<p>Pie charts are one of the most recognisable chart types, but they are actually quite hard to read when there are more than two slices. Human eyes are bad at comparing angles and areas — it is much easier to compare bar heights. A pie chart works well for showing something like “60% yes, 40% no”, but for anything more complex, a bar chart is almost always a better choice.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Pie charts look nice, but they are <strong>hard to read</strong> with many slices</li>
+<li>Human eyes are bad at comparing angles and areas</li>
+<li>Works well for <strong>two categories</strong> (e.g.&nbsp;60% vs.&nbsp;40%)</li>
+<li>For 3+ categories, a <strong>bar chart is almost always clearer</strong></li>
+</ul>
+
+<img data-src="media/piechartbad.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="multiple-mappings" class="slide level2">
+<h2>Multiple mappings</h2>
+<aside class="notes">
+<p>In this example, each circle represents a Danish city. Position shows area and population, size also shows population, and colour intensity does too. This is called multi-dimensional mapping — one data point drives multiple visual channels. It can be very effective, but be careful not to overdo it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>One data point can drive multiple visual channels</li>
+<li>Example: position, size, AND colour from the same dataset</li>
+<li>Be careful not to overdo it</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0905_map_data_size.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="using-csv-data-from-last-week" class="slide level2">
+<h2>Using CSV data from last week</h2>
+<aside class="notes">
+<p>This is the payoff from combining the two weeks. Load with <code>loadTable()</code> in <code>preload()</code>, then loop through rows and map column values to bars. Same pattern as last week, but now the data is drawn instead of just printed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Combine <code>loadTable()</code> from last week with bar chart drawing</li>
+<li>Loop through rows and map column values to bars</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0907_csv_bar_chart.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="animating-charts-with-lerp" class="slide level2">
+<h2>Animating charts with lerp</h2>
+<aside class="notes">
+<p>This is the same <code>lerp()</code> easing from earlier lectures, applied to chart data. Each frame, the current bar height moves a fraction closer to the target. Click the sketch to reset and watch the animation again.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>We have used an easing formula before, but you can also use <code>lerp()</code></li>
+<li>Use either to smoothly transition bar heights from zero</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href=""></a>currentHeight <span class="op">=</span> <span class="fu">lerp</span>(currentHeight<span class="op">,</span> targetHeight<span class="op">,</span> <span class="fl">0.03</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0908_animated_bars.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="adding-data-on-the-fly" class="slide level2">
+<h2>Adding data on the fly</h2>
+<aside class="notes">
+<p>The arrays grow with each click and the chart redraws itself every frame to accommodate the new data. This pattern is useful for user-driven data collection or for building up a visualisation step by step.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>We can add to our data arrays during runtime</li>
+<li>Click to add random data, press ‘r’ to reset</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0910_click_add_data.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="finding-data" class="slide level2">
+<h2>Finding data</h2>
+<aside class="notes">
+<p>Good visualisations start with interesting data. Denmark has a lot of publicly available datasets. Browse these and pick something you find genuinely interesting — it makes the assignment much more fun. The data does not have to be large; 5-15 rows is plenty for a p5.js chart.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Good visualisations start with <strong>interesting data</strong></li>
+<li>Some great open data sources:
+<ul>
+<li><a href="https://www.dst.dk/en">Danmarks Statistik</a> — population, economy, education, health</li>
+<li><a href="https://www.opendata.dk/">Open Data DK</a> — Danish municipal open data</li>
+<li><a href="https://opendatadocs.dmi.govcloud.dk/">DMI Open Data</a> — Danish weather and climate</li>
+<li><a href="https://simplemaps.com/data/dk-cities">SimpleMaps Denmark</a> — city coordinates and populations</li>
+<li><a href="https://ourworldindata.org/">Our World in Data</a> — global datasets, easy CSV downloads</li>
+</ul></li>
+<li>You only need 5-15 data points — keep it small!</li>
+</ul>
+</section>
+<section id="find-your-data" class="slide level2">
+<h2>Find your data</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Class Assignment: Find Your Data</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Browse the data sources from last slide (or find your own) and pick something interesting</li>
+<li>Download or copy the data — aim for 5-15 data points with at least 2 columns</li>
+<li>Load the data into p5.js (array, CSV, or JSON) and create one chart that shows something interesting</li>
+<li>Pick a chart type that fits: bar for comparisons, line for trends, scatter for relationships, or a pie</li>
+</ol>
+<p>We will continue with this dataset in the next assignment!</p>
+</div>
+</div>
+</div>
+
+<img data-src="media/finddata.jpg" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="infographics" class="title-slide slide level1 center">
+<h1>Infographics</h1>
+
+</section>
+<section id="what-is-an-infographic" class="slide level2">
+<h2>What is an infographic?</h2>
+<aside class="notes">
+<p>An infographic combines multiple visual elements into one layout that tells a complete story. Think of it as a poster for your data. The skill is combining chart types and techniques you already know into a clear, attractive composition.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>A visual summary that combines <strong>multiple elements</strong> into one layout</li>
+<li>Charts + icons + key numbers + text + colour</li>
+<li>Tells a complete <strong>story</strong> at a glance</li>
+<li>Common in journalism, reports, social media, and public health</li>
+</ul>
+
+<img data-src="media/infographic2.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="pictogram-charts" class="slide level2">
+<h2>Pictogram charts</h2>
+<aside class="notes">
+<p>A pictogram replaces abstract bars with repeated icons. Each icon represents a fixed number of units, which makes the data more tangible and engaging. In the example, simple person-shaped icons are drawn using circles and rectangles. The key design decision is how many units each icon represents.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Replace bars with <strong>repeated icons</strong> to represent quantities</li>
+<li>Each icon = a fixed number of units</li>
+<li>More engaging and intuitive than abstract bars</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0920_pictogram.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="progress-and-gauges" class="slide level2">
+<h2>Progress and gauges</h2>
+<aside class="notes">
+<p>Circular gauges use <code>arc()</code>, progress bars use <code>rect()</code>. The key is converting a percentage into an angle or width. These are the same functions as in the pie chart, just styled differently. Combined with <code>lerp()</code> animation they feel quite polished.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Show <strong>progress toward a goal</strong> (current vs.&nbsp;target)</li>
+<li>Circular gauges use <code>arc()</code>, progress bars use <code>rect()</code></li>
+<li>Great for dashboards and tracker-style layouts</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0921_progress_gauges.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="key-formula-circular-gauge" class="slide level2">
+<h2>Key formula: circular gauge</h2>
+<aside class="notes">
+<p>Starting at <code>-90</code> puts the beginning of the arc at the 12 o’clock position, which is what you would expect for a gauge. It is the same <code>arc()</code> function as in pie charts, just styled differently.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Same idea as pie charts — remember <code>angleMode(DEGREES)</code>!</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href=""></a><span class="kw">let</span> pct <span class="op">=</span> current <span class="op">/</span> target<span class="op">;</span>        <span class="co">// 0.0 to 1.0</span></span>
+<span id="cb7-2"><a href=""></a><span class="kw">let</span> endAngle <span class="op">=</span> <span class="op">-</span><span class="dv">90</span> <span class="op">+</span> <span class="dv">360</span> <span class="op">*</span> pct<span class="op">;</span>   <span class="co">// start from top</span></span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="co">// Background ring</span></span>
+<span id="cb7-5"><a href=""></a><span class="fu">arc</span>(cx<span class="op">,</span> cy<span class="op">,</span> size<span class="op">,</span> size<span class="op">,</span> <span class="op">-</span><span class="dv">90</span><span class="op">,</span> <span class="op">-</span><span class="dv">90</span> <span class="op">+</span> <span class="dv">360</span>)<span class="op">;</span></span>
+<span id="cb7-6"><a href=""></a></span>
+<span id="cb7-7"><a href=""></a><span class="co">// Filled ring</span></span>
+<span id="cb7-8"><a href=""></a><span class="fu">arc</span>(cx<span class="op">,</span> cy<span class="op">,</span> size<span class="op">,</span> size<span class="op">,</span> <span class="op">-</span><span class="dv">90</span><span class="op">,</span> endAngle)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>-90</code> starts the arc at the <strong>top</strong> (12 o’clock)</li>
+</ul>
+</section>
+<section id="composing-an-infographic" class="slide level2">
+<h2>Composing an infographic</h2>
+<aside class="notes">
+<p>This example combines a header, summary stat boxes, a line chart, and a bar chart in one canvas. The trick is to divide the canvas into regions and draw each component within its own area. It helps a lot to sketch the layout on paper before writing any code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Divide the canvas into <strong>regions</strong> (header, stats, charts)</li>
+<li>Draw each component in its own region</li>
+<li>Use consistent colours and typography throughout</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0922_infographic_layout.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="example-danish-cities-from-csv" class="slide level2">
+<h2>Example: Danish cities from CSV</h2>
+<aside class="notes">
+<p>This example loads the <code>city_temperatures.csv</code> from last week and turns it into a full infographic with stat boxes, a bar chart, and sized dots for humidity. It shows how data loading from lecture 8 connects directly to the visualisation techniques from this lecture.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Uses <code>loadTable()</code> to load the same CSV from lecture 8</li>
+<li>Stat boxes summarise averages across cities</li>
+<li>Bar chart compares temperatures, dot sizes show humidity</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0923_dk_cities_map.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="example-live-weather-dashboard" class="slide level2">
+<h2>Example: live weather dashboard</h2>
+<aside class="notes">
+<p>This example pulls live data from the Open-Meteo API for four Danish cities. No API key is needed, so you can try this yourself! It shows current conditions as stat cards, a 7-day forecast as a multi-line chart, and current wind speed as bars. The data is different every time you load the sketch — that is the fun part of working with live APIs.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Fetches <strong>live weather</strong> for Copenhagen, Aarhus, Odense, and Aalborg</li>
+<li>Uses the Open-Meteo API from last lecture</li>
+<li>Combines stat cards, line chart, and bar chart in one dashboard</li>
+</ul>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_9%2Fcode%2F0924_api_weather_dashboard.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="infographic-design-tips" class="slide level2">
+<h2>Infographic design tips</h2>
+<ul>
+<li><strong>Hierarchy</strong>: biggest/boldest element = most important message</li>
+<li><strong>Consistency</strong>: pick 3-4 colours and stick with them</li>
+<li><strong>White space</strong>: don’t fill every pixel — let the layout breathe</li>
+<li><strong>Flow</strong>: guide the eye from top to bottom, left to right</li>
+<li><strong>Source</strong>: always credit your data source</li>
+</ul>
+</section>
+<section id="data-poster" class="slide level2">
+<h2>Data poster</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Class Assignment: Data Poster</strong></p>
+</div>
+<div class="callout-content">
+<p>Using the dataset from the previous assignment:</p>
+<ol type="1">
+<li>Sketch a layout on paper: where will the title, key numbers, and charts go?</li>
+<li>Build an infographic in p5.js that combines at least two different visual elements (e.g.&nbsp;chart + stat boxes, pictogram + progress bars)</li>
+<li>Add a title, source credit, and consistent colour scheme</li>
+<li>Add animation or interaction to make it feel alive</li>
+</ol>
+</div>
+</div>
+</div>
+
+<img data-src="media/generic_infographic.webp" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Data visualisation = mapping values to visual properties with <code>map()</code></li>
+<li>Bar charts: <code>rect()</code> with height from data</li>
+<li>Line charts: <code>line()</code> segments between consecutive data points</li>
+<li>Scatter plots: <code>circle()</code> with x and y from two variables</li>
+<li>Pie charts: <code>arc()</code> with angles from data proportions</li>
+<li>Infographics combine multiple elements into one cohesive layout</li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="media/itu.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Creative Programming 2026 Lecture 9 - Ties Robroek - IT University of Copenhagen</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture_9_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture_9_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture_9_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture_9_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 8.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+      let placeholder = document.querySelector("div#toc");
+      let toc = document.querySelector("#toc-nav");
+      let toc_slide = document.querySelector("section#TOC");
+      
+      let toc_clone = toc.cloneNode(true);
+      placeholder.replaceWith(toc_clone);
+      
+      toc_slide.remove();
+    </script>
+    <div class="quarto-notes-button" role="group" aria-label="Slide helpers">
+      <button id="toggle-notes-btn" type="button" aria-controls="notes-panel" aria-expanded="false">Narration</button>
+      </div>
+
+    <div id="notes-panel" aria-live="polite" aria-label="Narration" hidden="">
+      <div class="notes-header">Narrative Notes</div>
+      <div id="notes-content"></div>
+    </div>
+
+    <script>
+    (function(){
+      function setRevealViewportHeight(px){
+        var h = (typeof px === 'number') ? px : 0;
+        document.documentElement.style.setProperty('--quarto-notes-height', h + 'px');
+      }
+
+      function getNotesHTML(slide){
+        if (!slide) return '';
+        // Reveal transforms ::: {.notes} to <aside class="notes"> or uses data-notes
+        var aside = slide.querySelector('aside.notes');
+        if (aside) return aside.innerHTML || aside.textContent || '';
+        var dataNotes = slide.getAttribute('data-notes');
+        return dataNotes || '';
+      }
+
+      function updateNotes(){
+        try {
+          var content = document.getElementById('notes-content');
+          var btn = document.getElementById('toggle-notes-btn');
+          if (!content) return;
+          var slide = (window.Reveal && typeof window.Reveal.getCurrentSlide === 'function')
+            ? window.Reveal.getCurrentSlide() : null;
+          var html = getNotesHTML(slide);
+          var hasNotes = html && html.trim();
+          
+          content.innerHTML = hasNotes ? html : '<em>No notes for this slide.</em>';
+          
+          // Add/remove highlight based on whether notes exist
+          if (btn) {
+            if (hasNotes) {
+              btn.classList.add('has-notes');
+            } else {
+              btn.classList.remove('has-notes');
+            }
+          }
+        } catch (e) {
+          // Ignore
+        }
+      }
+
+      function togglePanel(){
+        var panel = document.getElementById('notes-panel');
+        var btn = document.getElementById('toggle-notes-btn');
+        if (!panel || !btn) return;
+        var isHidden = panel.hasAttribute('hidden');
+        if (isHidden) {
+          panel.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Hide';
+          updateNotes();
+          requestAnimationFrame(function(){
+            var height = panel.offsetHeight || 0;
+            setRevealViewportHeight(height);
+            if (window.Reveal && typeof window.Reveal.layout === 'function') {
+              window.Reveal.layout();
+            }
+          });
+        } else {
+          panel.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Narration';
+          setRevealViewportHeight(0);
+          if (window.Reveal && typeof window.Reveal.layout === 'function') {
+            window.Reveal.layout();
+          }
+        }
+      }
+
+      function init(){
+        var btn = document.getElementById('toggle-notes-btn');
+        if (btn) {
+          btn.addEventListener('click', function(ev){ ev.preventDefault(); togglePanel(); });
+          btn.title = 'Show or hide narration for the current slide';
+        }
+        // Update notes when the deck is ready and on slide changes
+        if (window.Reveal && typeof window.Reveal.on === 'function'){
+          window.Reveal.on('ready', updateNotes);
+          window.Reveal.on('slidechanged', updateNotes);
+        } else {
+          // Fallback: update once after DOM ready
+          updateNotes();
+        }
+
+        // Keep reveal viewport adjusted on resize when panel is visible
+        window.addEventListener('resize', function(){
+          var panel = document.getElementById('notes-panel');
+          if (panel && !panel.hasAttribute('hidden')){
+            setRevealViewportHeight(panel.offsetHeight || 0);
+            if (window.Reveal && typeof window.Reveal.layout === 'function') {
+              window.Reveal.layout();
+            }
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+    </script>
+
+    <style>
+    .quarto-notes-button { 
+      position: fixed; 
+      right: 16px;
+      bottom: calc(max(16px + var(--quarto-notes-height, 0px), 10%)); 
+      z-index: 9999; 
+    }
+    .quarto-notes-button button {
+      padding: 8px 12px;
+      font-family: var(--r-main-font);
+      font-weight: var(--r-main-font-weight);
+      font-size: calc(var(--r-main-font-size)*0.7);
+      border-radius: 6px;
+      border: 1px solid #999;
+      background: #ffffff;
+      color: #222;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .quarto-notes-button button:hover { background: #f3f3f3; }
+
+    .quarto-notes-button button.has-notes {
+      background: #fffacd;
+      border-color: #ffeb3b;
+      font-weight: 600;
+      box-shadow: 0 0 0 2px rgba(255, 235, 59, 0.3);
+    }
+
+    .quarto-notes-button button.has-notes:hover {
+      background: #fff9c4;
+    }
+
+    #notes-panel {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      max-height: 40vh;
+      background: rgba(255,255,255);
+      border-top: 1px solid #ddd;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.12);
+      z-index: 9998;
+      padding: 10px 16px;
+      overflow: auto;
+      font-family: var(--r-main-font);
+      font-weight: var(--r-main-font-weight);
+      font-size: calc(var(--r-main-font-size) * 0.7);
+      line-height: normal;
+    }
+    #notes-panel .notes-header{
+      font-family: var(--r-main-font);
+      font-weight: var(--r-main-font-weight);
+      font-size: calc(var(--r-main-font-size) * 1.0);
+      color: #555;
+      margin-bottom: 6px;
+      line-height: normal;
+    }
+    /* #notes-content { font-size: 1.05rem; line-height: 1.65; } */
+
+    /* Reduce Reveal viewport height when notes are visible */
+    /* .reveal,
+    .reveal-viewport {
+      height: calc(100vh - var(--quarto-notes-height, 0px)) !important;
+    } */
+
+    @media print { 
+      .quarto-notes-button, #notes-panel { display: none; }
+    }
+    </style>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
