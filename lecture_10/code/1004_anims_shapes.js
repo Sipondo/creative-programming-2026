@@ -1,5 +1,6 @@
 function setup() {
   createCanvas(600, 400);
+  animS = animS.newAnimS(this); // connect to p5 instance
 }
 
 function draw() {

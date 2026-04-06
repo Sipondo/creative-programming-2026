@@ -5,7 +5,7 @@ let labels = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 function setup() {
   createCanvas(600, 400);
   background(255);
-  scribble = new Scribble(this);
+  scribble = new Scribble(this); // pass the p5 instance
   scribble.roughness = 2; // extra wobbly
 
   let barW = 60;
