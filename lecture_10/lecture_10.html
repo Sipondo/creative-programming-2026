@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture_10_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture_10_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture_10_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture_10_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture_10_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture_10_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture_10_files/libs/quarto-html/quarto-syntax-highlighting-46f66b053e56abd73bb6e954d61a315b.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.35">
+
+  <title>Creative Programming: Resources</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture_10_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture_10_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="lecture_10_files/libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="styles.css">
+  <link href="lecture_10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture_10_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture_10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture_10_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture_10_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="lecture_10_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Creative Programming:<br>Resources</h1>
+  <p class="subtitle">Lecture 10</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section><section id="TOC">
+    <nav id="toc-nav" role="doc-toc" style="padding-top: 5px; padding-bottom: 5px;">
+                <h3 id="toc-title">Table of contents</h3>
+                <ul>
+                
+                <li><a href="#/revisiting-slides" id="/toc-revisiting-slides">(Re)visiting slides?</a></li>
+                <li><a href="#/todays-lecture" id="/toc-todays-lecture">Today’s lecture</a></li>
+                <li><a href="#/what-is-a-library" id="/toc-what-is-a-library">What is a library?</a></li>
+                <li><a href="#/games-and-physics" id="/toc-games-and-physics">Games and Physics</a>
+                <ul>
+                
+                
+                <li><a href="#/why-games-and-physics" id="/toc-why-games-and-physics">Why games and physics?</a></li>
+                <li><a href="#/what-is-p5play" id="/toc-what-is-p5play">What is p5play?</a></li>
+                <li><a href="#/including-p5play" id="/toc-including-p5play">Including p5play</a></li>
+                <li><a href="#/sprites" id="/toc-sprites">Sprites</a></li>
+                <li><a href="#/gravity-and-bounciness" id="/toc-gravity-and-bounciness">Gravity and bounciness</a></li>
+                
+                <li><a href="#/spawning-on-click" id="/toc-spawning-on-click">Spawning on click</a></li>
+                <li><a href="#/what-can-you-make" id="/toc-what-can-you-make">What can you make?</a></li>
+                </ul></li>
+                <li><a href="#/machine-learning" id="/toc-machine-learning">Machine Learning</a>
+                <ul>
+                
+                
+                <li><a href="#/why-machine-learning" id="/toc-why-machine-learning">Why machine learning?</a></li>
+                <li><a href="#/what-is-ml5.js" id="/toc-what-is-ml5.js">What is ml5.js?</a></li>
+                <li><a href="#/including-ml5.js" id="/toc-including-ml5.js">Including ml5.js</a></li>
+                <li><a href="#/what-models-are-available" id="/toc-what-models-are-available">What models are available?</a></li>
+                <li><a href="#/dog-breed-classifier" id="/toc-dog-breed-classifier">Dog breed classifier</a></li>
+                <li><a href="#/breaking-it-down" id="/toc-breaking-it-down">Breaking it down</a></li>
+                <li><a href="#/hand-and-body-tracking" id="/toc-hand-and-body-tracking">Hand and body tracking</a></li>
+                <li><a href="#/what-can-you-make-1" id="/toc-what-can-you-make-1">What can you make?</a></li>
+                </ul></li>
+                <li><a href="#/generative-text" id="/toc-generative-text">Generative Text</a>
+                <ul>
+                
+                
+                <li><a href="#/why-generative-text" id="/toc-why-generative-text">Why generative text?</a></li>
+                <li><a href="#/what-is-rita.js" id="/toc-what-is-rita.js">What is RiTa.js?</a></li>
+                <li><a href="#/including-rita.js" id="/toc-including-rita.js">Including RiTa.js</a></li>
+                <li><a href="#/grammars" id="/toc-grammars">Grammars</a></li>
+                <li><a href="#/generative-poem" id="/toc-generative-poem">Generative poem</a></li>
+                <li><a href="#/language-analysis" id="/toc-language-analysis">Language analysis</a></li>
+                <li><a href="#/what-can-you-make-2" id="/toc-what-can-you-make-2">What can you make?</a></li>
+                </ul></li>
+                <li><a href="#/animated-drawing" id="/toc-animated-drawing">Animated Drawing</a>
+                <ul>
+                
+                
+                <li><a href="#/why-animated-drawing" id="/toc-why-animated-drawing">Why animated drawing?</a></li>
+                <li><a href="#/what-is-p5.anims" id="/toc-what-is-p5.anims">What is p5.animS?</a></li>
+                <li><a href="#/including-p5.anims" id="/toc-including-p5.anims">Including p5.animS</a></li>
+                <li><a href="#/animated-circle" id="/toc-animated-circle">Animated circle</a></li>
+                <li><a href="#/multiple-animated-shapes" id="/toc-multiple-animated-shapes">Multiple animated shapes</a></li>
+                <li><a href="#/available-shapes" id="/toc-available-shapes">Available shapes</a></li>
+                <li><a href="#/what-can-you-make-3" id="/toc-what-can-you-make-3">What can you make?</a></li>
+                </ul></li>
+                <li><a href="#/hand-drawn-visuals" id="/toc-hand-drawn-visuals">Hand-Drawn Visuals</a>
+                <ul>
+                
+                
+                <li><a href="#/why-sketchy-visuals" id="/toc-why-sketchy-visuals">Why sketchy visuals?</a></li>
+                <li><a href="#/what-is-p5.scribble" id="/toc-what-is-p5.scribble">What is p5.scribble?</a></li>
+                <li><a href="#/including-p5.scribble" id="/toc-including-p5.scribble">Including p5.scribble</a></li>
+                <li><a href="#/basic-usage" id="/toc-basic-usage">Basic usage</a></li>
+                <li><a href="#/sketchy-bar-chart" id="/toc-sketchy-bar-chart">Sketchy bar chart</a></li>
+                <li><a href="#/what-can-you-make-4" id="/toc-what-can-you-make-4">What can you make?</a></li>
+                </ul></li>
+                <li><a href="#/wrapping-up" id="/toc-wrapping-up">Wrapping up</a>
+                <ul>
+                <li><a href="#/choosing-a-library" id="/toc-choosing-a-library">Choosing a library</a></li>
+                <li><a href="#/finding-more-libraries" id="/toc-finding-more-libraries">Finding more libraries</a></li>
+                <li><a href="#/learning-and-inspiration" id="/toc-learning-and-inspiration">Learning and inspiration</a></li>
+                <li><a href="#/beyond-p5.js" id="/toc-beyond-p5.js">Beyond p5.js</a></li>
+                <li><a href="#/summary" id="/toc-summary">Summary</a></li>
+                </ul></li>
+                </ul>
+    </nav>
+    <script>
+        (function () {
+            var nav = document.getElementById('toc-nav');
+            if (nav) {
+                var topUl = nav.querySelector('ul');
+                if (topUl) {
+                    // Find all direct child li elements
+                    var topLevelItems = Array.from(topUl.children).filter(function (el) { return el.tagName === 'LI'; });
+
+                    // Keep only items that have nested ul (true sections with subsections)
+                    topLevelItems.forEach(function (li) {
+                        var hasNestedUl = li.querySelector('ul');
+                        if (hasNestedUl) {
+                            // This is a true section - remove its nested ul
+                            hasNestedUl.remove();
+                        } else {
+                            // This is a subsection promoted to top level - remove it
+                            li.remove();
+                        }
+                    });
+                }
+            }
+        })();
+    </script>
+</section>
+<section class="slide level2">
+
+<aside class="notes">
+<p>The first slide of every lecture introduces what we can make with the things we learn this week! This week is about libraries – extensions to p5.js that let you do things like physics simulations, hand tracking, generative poetry, animated drawing, and sketchy hand-drawn visuals.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1002_ml5_classifier.js&amp;libs=https%3A%2F%2Funpkg.com%2Fml5%401%2Fdist%2Fml5.js&amp;viewMode=1" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="revisiting-slides" class="slide level2">
+<h2>(Re)visiting slides?</h2>
+<aside class="notes">
+<p>This is where you can find the narration notes. Some slides don’t have notes, but important technical slides usually do.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>You can jump to any slide with the menu to the (bottom) left.</p>
+<div class="columns" style="display: flex !important; height: 90%;">
+<div class="column" style="display: flex; justify-content: center; align-items: bottom;">
+<p>Did you miss a slide or want to revisit? Open the narration tab while studying to get an explanation of difficult slides.</p>
+</div><div class="column" style="display: flex; justify-content: center; align-items: bottom;">
+<p><img data-src="media/arrow.png"></p>
+</div></div>
+</section>
+<section id="todays-lecture" class="slide level2">
+<h2>Today’s lecture</h2>
+<ul>
+<li>Last lecture!!!</li>
+<li>Today is a shorter, resource-focused lecture</li>
+<li>No programming - just some inspiration and perhaps project work time</li>
+<li>We explore <strong>five p5.js libraries</strong> to serve as inspiration for your projects</li>
+<li>Focus on what excites you</li>
+</ul>
+</section>
+<section id="what-is-a-library" class="slide level2">
+<h2>What is a library?</h2>
+<aside class="notes">
+<p>A library is just extra code that someone else wrote and shared. You include it in your project with a script tag, just like you include p5.js itself. The library then gives you new functions and objects to use in your sketch. You’ve already been using a library this entire course – p5.js itself is a library!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>A library is extra code that gives p5.js <strong>new abilities</strong></li>
+<li>We’ve used one before: p5js sound</li>
+<li>You include it with a <code>&lt;script&gt;</code> tag in your HTML</li>
+<li>Then you can use its new functions in your sketch</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href=""></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href=""></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/p5/lib/p5.min.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href=""></a>    <span class="co">&lt;!-- Add your library here --&gt;</span></span>
+<span id="cb1-5"><a href=""></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://the-library-url.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href=""></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href=""></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-8"><a href=""></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"sketch.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb1-9"><a href=""></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb1-10"><a href=""></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section>
+<section id="games-and-physics" class="title-slide slide level1 center">
+<h1>Games and Physics</h1>
+
+</section>
+<section id="section" class="slide level2" data-background-image="media/games_1.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="section-1" class="slide level2" data-background-image="media/games_2.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="why-games-and-physics" class="slide level2">
+<h2>Why games and physics?</h2>
+<aside class="notes">
+<p>Games are one of the most engaging forms of interactive media. They combine visuals, interaction, and logic into one experience. Physics simulations make things feel real and satisfying – things bounce, fall, and collide. Even simple games can be incredibly fun to build and play.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Games are engaging but also hard to make</li>
+<li>They combine visuals, interaction, and logic</li>
+<li>Even simple games can be incredibly fun to build and play</li>
+</ul>
+</section>
+<section id="what-is-p5play" class="slide level2">
+<h2>What is p5play?</h2>
+<aside class="notes">
+<p>p5play is a game engine built on top of p5.js. It uses the Box2D physics engine under the hood, which is the same engine used by games like Angry Birds. It was designed by computer science teachers to be easy to learn, so it fits perfectly with what we’ve been doing in this course. You can make games, physics simulations, and interactive art with very little code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>A <strong>game engine</strong> built on p5.js</li>
+<li>Powered by the <strong>Box2D</strong> physics engine (same as Angry Birds!)</li>
+<li>Designed by CS teachers for beginners</li>
+<li>Handles gravity, collisions, sprites, animation, input</li>
+<li><a href="https://p5play.org">p5play.org</a></li>
+</ul>
+</section>
+<section id="including-p5play" class="slide level2">
+<h2>Including p5play</h2>
+<aside class="notes">
+<p>p5play needs two files: planck.js (the physics engine) and p5play.js itself. You can either download them into your project folder or load them from the web. Downloading is preferred so your sketch works offline.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>Download both files into your project folder (preferred):</p>
+<ul>
+<li><a href="https://p5play.org/v3/planck.min.js">planck.min.js</a></li>
+<li><a href="https://p5play.org/v3/p5play.js">p5play.js</a></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"planck.min.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"p5play.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or load from the web:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://p5play.org/v3/planck.min.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb3-2"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://p5play.org/v3/p5play.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="sprites" class="slide level2">
+<h2>Sprites</h2>
+<aside class="notes">
+<p>The core concept in p5play is the Sprite. A Sprite is a game object with a position, size, and physics properties. You create one with <code>new Sprite()</code> and p5play automatically draws it and simulates physics for it. A single number for the size makes a circle; two numbers make a rectangle.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>The building block of p5play is the <strong>Sprite</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href=""></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb4-2"><a href=""></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a>  <span class="co">// new Sprite(x, y, diameter) -- circle</span></span>
+<span id="cb4-5"><a href=""></a>  <span class="kw">let</span> ball <span class="op">=</span> <span class="kw">new</span> <span class="fu">Sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb4-6"><a href=""></a></span>
+<span id="cb4-7"><a href=""></a>  <span class="co">// new Sprite(x, y, width, height) -- rectangle</span></span>
+<span id="cb4-8"><a href=""></a>  <span class="kw">let</span> box <span class="op">=</span> <span class="kw">new</span> <span class="fu">Sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">50</span>)<span class="op">;</span></span>
+<span id="cb4-9"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Sprites are <strong>automatically drawn</strong></li>
+<li>They have built-in <strong>physics</strong> – they fall, collide, and bounce</li>
+</ul>
+</section>
+<section id="gravity-and-bounciness" class="slide level2">
+<h2>Gravity and bounciness</h2>
+<aside class="notes">
+<p>By default, sprites don’t have gravity. You turn it on by setting <code>world.gravity.y</code> to a positive number. You can make sprites bouncy by setting their <code>bounciness</code> property – 1 means perfectly bouncy, 0 means no bounce. A <code>"static"</code> sprite doesn’t move, which is perfect for floors and walls.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href=""></a><span class="kw">function</span> <span class="fu">setup</span>() {</span>
+<span id="cb5-2"><a href=""></a>  <span class="fu">createCanvas</span>(<span class="dv">400</span><span class="op">,</span> <span class="dv">400</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href=""></a>  world<span class="op">.</span><span class="at">gravity</span><span class="op">.</span><span class="at">y</span> <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a>  <span class="kw">let</span> ball <span class="op">=</span> <span class="kw">new</span> <span class="fu">Sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">50</span><span class="op">,</span> <span class="dv">40</span>)<span class="op">;</span></span>
+<span id="cb5-6"><a href=""></a>  ball<span class="op">.</span><span class="at">bounciness</span> <span class="op">=</span> <span class="fl">0.8</span><span class="op">;</span></span>
+<span id="cb5-7"><a href=""></a>  ball<span class="op">.</span><span class="at">color</span> <span class="op">=</span> <span class="st">"orange"</span><span class="op">;</span></span>
+<span id="cb5-8"><a href=""></a></span>
+<span id="cb5-9"><a href=""></a>  <span class="co">// "static" sprites don't move</span></span>
+<span id="cb5-10"><a href=""></a>  <span class="kw">let</span> floor <span class="op">=</span> <span class="kw">new</span> <span class="fu">Sprite</span>(<span class="dv">200</span><span class="op">,</span> <span class="dv">380</span><span class="op">,</span> <span class="dv">400</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="st">"static"</span>)<span class="op">;</span></span>
+<span id="cb5-11"><a href=""></a>  floor<span class="op">.</span><span class="at">color</span> <span class="op">=</span> <span class="st">"darkgreen"</span><span class="op">;</span></span>
+<span id="cb5-12"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>world.gravity.y = 10</code> – things fall down</li>
+<li><code>bounciness</code> from 0 (no bounce) to 1 (perfect bounce)</li>
+<li><code>"static"</code> sprites are fixed in place</li>
+</ul>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1000_p5play_gravity.js&amp;libs=https%3A%2F%2Fp5play.org%2Fv3%2Fplanck.min.js%2Chttps%3A%2F%2Fp5play.org%2Fv3%2Fp5play.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="spawning-on-click" class="slide level2">
+<h2>Spawning on click</h2>
+<aside class="notes">
+<p>p5play has its own input system. <code>mouse.presses()</code> returns true on the frame the mouse is clicked. This makes it easy to spawn new sprites on click. Each new sprite gets physics automatically – it falls, collides with other sprites, and bounces off the floor.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1001_p5play_click.js&amp;libs=https%3A%2F%2Fp5play.org%2Fv3%2Fplanck.min.js%2Chttps%3A%2F%2Fp5play.org%2Fv3%2Fp5play.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="what-can-you-make" class="slide level2">
+<h2>What can you make?</h2>
+<ul>
+<li class="fragment"><strong>Sprites/physics</strong> are super useful, even for non-games!</li>
+<li class="fragment"><strong>Platformer games</strong> – player sprite, platforms, enemies</li>
+<li class="fragment"><strong>Physics simulations</strong> – balls, chains, ragdolls</li>
+<li class="fragment"><strong>Interactive art</strong> – physics-driven compositions</li>
+</ul>
+<p>Learn more: <a href="https://p5play.org/learn">p5play.org/learn</a></p>
+</section></section>
+<section>
+<section id="machine-learning" class="title-slide slide level1 center">
+<h1>Machine Learning</h1>
+
+</section>
+<section id="section-3" class="slide level2" data-background-image="media/ml_1.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="section-4" class="slide level2" data-background-image="media/ml_2.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="why-machine-learning" class="slide level2">
+<h2>Why machine learning?</h2>
+<aside class="notes">
+<p>Machine learning is everywhere – from face filters on social media to motion capture in movies. But you don’t need to be a data scientist to use it. ml5.js makes it possible to use pre-trained models in your p5.js sketches with just a few lines of code. Imagine your sketch reacting to your hands, your body, or your face in real time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Your sketch can <strong>see</strong> and <strong>react</strong> to the real world</li>
+<li>Hand tracking, body detection, face recognition – all through the webcam</li>
+<li>Opens up entirely new ways to <strong>interact</strong> with creative work</li>
+<li>The “wow factor” is very high – even with simple code</li>
+</ul>
+</section>
+<section id="what-is-ml5.js" class="slide level2">
+<h2>What is ml5.js?</h2>
+<aside class="notes">
+<p>ml5.js brings machine learning to p5.js. It wraps TensorFlow.js and provides pre-trained models that you can use with just a few lines of code. The most impressive features for creative projects are the body and hand tracking models – they use your webcam to detect where your hands, face, or body are in real-time. No training needed!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li><strong>Machine learning</strong> made easy for p5.js</li>
+<li>Pre-trained models – no training needed
+<ul>
+<li>Models are the AI systems</li>
+</ul></li>
+<li>Combine with your code to add surprising interactions</li>
+<li><a href="https://ml5js.org">ml5js.org</a></li>
+</ul>
+</section>
+<section id="including-ml5.js" class="slide level2">
+<h2>Including ml5.js</h2>
+<aside class="notes">
+<p>ml5.js is a single file. Download it into your project folder or load it from the web. Note that ml5.js is quite large because it bundles TensorFlow.js.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>Download into your project folder (preferred):</p>
+<ul>
+<li><a href="https://unpkg.com/ml5@1/dist/ml5.js">ml5.js</a></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"ml5.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or load from the web:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://unpkg.com/ml5@1/dist/ml5.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="what-models-are-available" class="slide level2">
+<h2>What models are available?</h2>
+<aside class="notes">
+<p>ml5.js comes with several pre-trained models. BodyPose detects 17 keypoints on a person’s body (nose, eyes, shoulders, elbows, wrists, etc.). HandPose detects 21 keypoints per hand. FaceMesh gives you 468 facial landmarks. These all work in real-time through the webcam.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li class="fragment"><strong>BodyPose</strong> – body pose estimation</li>
+<li class="fragment"><strong>HandPose</strong> – hand tracking</li>
+<li class="fragment"><strong>FaceMesh</strong> – face detection</li>
+<li class="fragment"><strong>ImageClassifier</strong> – recognise objects in images</li>
+<li class="fragment"><strong>SoundClassifier</strong> – detect sounds</li>
+<li class="fragment">(<strong>NeuralNetwork</strong> – train your own model)</li>
+</ul>
+</section>
+<section id="dog-breed-classifier" class="slide level2">
+<h2>Dog breed classifier</h2>
+<aside class="notes">
+<p>This example combines two things: the Dog API from lecture 8 (to fetch a random dog image) and ml5’s ImageClassifier with MobileNet (to guess the breed). Each time you click, it fetches a new dog and classifies it. MobileNet knows over 100 dog breeds, so it often gets impressively close!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1002_ml5_classifier.js&amp;libs=https%3A%2F%2Funpkg.com%2Fml5%401%2Fdist%2Fml5.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="breaking-it-down" class="slide level2">
+<h2>Breaking it down</h2>
+<aside class="notes">
+<p>This sketch combines an API call (from lecture 8) with machine learning. First we fetch a random dog URL from the Dog API, then load that image, then pass it to ml5’s classifier. The callback pattern is the same as many ml5 models: call a function, pass a callback, handle the results. MobileNet can recognise over 1000 categories including many dog breeds.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ol type="1">
+<li><code>ml5.imageClassifier("MobileNet")</code> – load the AI model</li>
+<li><code>classifier.classify(dogImage, gotResult)</code> – asks the model: “what breed?”</li>
+<li><code>gotResult(results)</code> – callback function once the model is done thinking</li>
+</ol>
+</section>
+<section id="hand-and-body-tracking" class="slide level2">
+<h2>Hand and body tracking</h2>
+<aside class="notes">
+<p>Image classification is just the start. ml5.js also has models that work with your webcam in real-time: HandPose tracks 21 points on each hand, BodyPose tracks your full body, and FaceMesh maps 468 points on your face. These are more advanced but follow the same pattern – load the model, start detection, handle results in a callback.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>ml5.js can also track your <strong>body in real-time</strong> via the webcam:</p>
+<ul>
+<li><strong>HandPose</strong> – 21 keypoints per hand (finger tips, knuckles, wrist)</li>
+<li><strong>BodyPose</strong> – 17 body keypoints (nose, shoulders, elbows, wrists, …)</li>
+<li><strong>FaceMesh</strong> – 468 facial landmarks</li>
+</ul>
+<p>Same pattern: load model, start detection, draw the keypoints.</p>
+<p>These need webcam access – try them locally!</p>
+</section>
+<section id="what-can-you-make-1" class="slide level2">
+<h2>What can you make?</h2>
+<ul>
+<li class="fragment"><strong>Air drawing</strong> – draw on screen with your finger</li>
+<li class="fragment"><strong>Gesture controls</strong> – wave to change colours, pinch to zoom</li>
+<li class="fragment"><strong>Body-controlled games</strong> – move a character with your body</li>
+<li class="fragment"><strong>Face filters</strong> – overlay graphics on facial landmarks</li>
+<li class="fragment"><strong>Interactive installations</strong> – art that reacts to the viewer</li>
+</ul>
+<p>Learn more: <a href="https://ml5js.org/">ml5js.org</a></p>
+</section></section>
+<section>
+<section id="generative-text" class="title-slide slide level1 center">
+<h1>Generative Text</h1>
+
+</section>
+<section id="section-5" class="slide level2" data-background-image="media/text_1.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="section-6" class="slide level2" data-background-image="media/text_2.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="why-generative-text" class="slide level2">
+<h2>Why generative text?</h2>
+<aside class="notes">
+<p>Words are everywhere in creative work – from poetry to chatbots, from interactive fiction to generative art. What if your sketch could write its own poetry, find rhymes, or generate stories? RiTa.js brings the power of language to p5.js.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Words are a powerful creative medium – not just visuals!</li>
+<li>Generative text creates <strong>unique</strong> output every time</li>
+<li>Grammars let you define the <strong>structure</strong> of language</li>
+<li>Great for poetry, stories, chatbots, and text-based art</li>
+</ul>
+</section>
+<section id="what-is-rita.js" class="slide level2">
+<h2>What is RiTa.js?</h2>
+<aside class="notes">
+<p>RiTa is a toolkit for computational writing and generative text. It’s been around for a long time and is used by digital poets, artists, and writers. It gives you tools to generate text from grammars, find rhymes, count syllables, and identify parts of speech. If your project involves words, stories, or language in any way, RiTa is your friend.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>A toolkit for <strong>computational writing</strong></li>
+<li>Generate text from grammars</li>
+<li>Analyse language: rhymes, syllables, parts of speech</li>
+<li>Create Markov chain text (generated text)</li>
+<li>Used by digital poets and artists</li>
+<li><a href="https://rednoise.org/rita">rednoise.org/rita</a></li>
+</ul>
+</section>
+<section id="including-rita.js" class="slide level2">
+<h2>Including RiTa.js</h2>
+<p>Download into your project folder (preferred):</p>
+<ul>
+<li><a href="https://cdn.jsdelivr.net/npm/rita@3.2.11/dist/rita.min.js">rita.min.js</a></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb8-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"rita.min.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or load from the web:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/rita"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="grammars" class="slide level2">
+<h2>Grammars</h2>
+<aside class="notes">
+<p>A grammar is a set of rules for generating text. You define categories (like adjective, noun, verb) with a list of options each. Then you define a pattern that combines them. RiTa picks randomly from each category to generate unique text every time. This is called a context-free grammar – a fundamental concept in computational linguistics.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>A <strong>grammar</strong> defines rules for generating text:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb10-1"><a href=""></a><span class="kw">let</span> grammar <span class="op">=</span> RiTa<span class="op">.</span><span class="fu">grammar</span>({</span>
+<span id="cb10-2"><a href=""></a>  <span class="dt">start</span><span class="op">:</span> <span class="st">"The $adj $noun $verb"</span><span class="op">,</span></span>
+<span id="cb10-3"><a href=""></a>  <span class="dt">adj</span><span class="op">:</span> <span class="st">"[ golden | silent | broken | dancing | ancient ]"</span><span class="op">,</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="dt">noun</span><span class="op">:</span> <span class="st">"[ river | shadow | dream | mirror | forest ]"</span><span class="op">,</span></span>
+<span id="cb10-5"><a href=""></a>  <span class="dt">verb</span><span class="op">:</span> <span class="st">"[ flows | drifts | whispers | fades | glows ]"</span></span>
+<span id="cb10-6"><a href=""></a>})<span class="op">;</span></span>
+<span id="cb10-7"><a href=""></a></span>
+<span id="cb10-8"><a href=""></a><span class="kw">let</span> sentence <span class="op">=</span> grammar<span class="op">.</span><span class="fu">expand</span>()<span class="op">;</span></span>
+<span id="cb10-9"><a href=""></a><span class="co">// e.g. "The silent dream whispers"</span></span>
+<span id="cb10-10"><a href=""></a><span class="co">// e.g. "The golden river flows"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>$adj</code> gets replaced by a random choice from the <code>adj</code> list</li>
+<li>Call <code>grammar.expand()</code> to generate a new sentence each time</li>
+</ul>
+</section>
+<section id="generative-poem" class="slide level2">
+<h2>Generative poem</h2>
+<aside class="notes">
+<p>This example creates a three-line poem generator. Each time you click, it generates a new poem using the grammar rules. The grammar defines the structure of each line, and RiTa fills in the blanks randomly. You get a different poem every time.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1003_rita_poem.js&amp;libs=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Frita" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="language-analysis" class="slide level2">
+<h2>Language analysis</h2>
+<aside class="notes">
+<p>Beyond generating text, RiTa can also analyse existing text. You can find words that rhyme, count syllables, and identify parts of speech. This is useful for creating constrained poetry (like haiku with syllable counting) or for finding creative word connections.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>RiTa can also <strong>analyse</strong> language:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb11-1"><a href=""></a><span class="co">// Find rhymes</span></span>
+<span id="cb11-2"><a href=""></a><span class="kw">let</span> rhymes <span class="op">=</span> RiTa<span class="op">.</span><span class="fu">rhymes</span>(<span class="st">"cat"</span>)<span class="op">;</span></span>
+<span id="cb11-3"><a href=""></a><span class="co">// ["bat", "hat", "sat", "flat", ...]</span></span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a><span class="co">// Count syllables</span></span>
+<span id="cb11-6"><a href=""></a><span class="kw">let</span> count <span class="op">=</span> RiTa<span class="op">.</span><span class="fu">syllables</span>(<span class="st">"creativity"</span>)<span class="op">;</span></span>
+<span id="cb11-7"><a href=""></a><span class="co">// "kri-ey-tiv-ih-tiy" (5 syllables)</span></span>
+<span id="cb11-8"><a href=""></a></span>
+<span id="cb11-9"><a href=""></a><span class="co">// Get part of speech</span></span>
+<span id="cb11-10"><a href=""></a><span class="kw">let</span> pos <span class="op">=</span> RiTa<span class="op">.</span><span class="fu">pos</span>(<span class="st">"The cat sat"</span>)<span class="op">;</span></span>
+<span id="cb11-11"><a href=""></a><span class="co">// ["dt", "nn", "vbd"] (determiner, noun, verb-past-tense)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="what-can-you-make-2" class="slide level2">
+<h2>What can you make?</h2>
+<ul>
+<li class="fragment"><strong>Poetry generators</strong> – grammars that write poems</li>
+<li class="fragment"><strong>Interactive fiction</strong> – stories that change each reading</li>
+<li class="fragment"><strong>Text visualisations</strong> – words as visual elements</li>
+<li class="fragment"><strong>Chatbot personalities</strong> – grammar-driven dialogue</li>
+<li class="fragment"><strong>Concrete poetry</strong> – where the shape of text matters</li>
+</ul>
+<p>Learn more: <a href="https://rednoise.org/rita/">rednoise.org/rita</a></p>
+</section></section>
+<section>
+<section id="animated-drawing" class="title-slide slide level1 center">
+<h1>Animated Drawing</h1>
+
+</section>
+<section id="section-7" class="slide level2" data-background-image="media/anim_1.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="section-8" class="slide level2" data-background-image="media/anim_2.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="why-animated-drawing" class="slide level2">
+<h2>Why animated drawing?</h2>
+<aside class="notes">
+<p>Animation brings things to life. From hand-drawn cartoons to motion graphics on the web, the idea of things moving and appearing over time is fundamental to creative media. What if your shapes could draw themselves, like someone is sketching them in real time?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Static shapes appear instantly – animated ones <strong>tell a story</strong></li>
+<li>Watching something draw itself feels <strong>alive</strong> and engaging</li>
+<li>Great for presentations, infographics, and storytelling</li>
+<li>Adds polish to any sketch with minimal effort</li>
+</ul>
+</section>
+<section id="what-is-p5.anims" class="slide level2">
+<h2>What is p5.animS?</h2>
+<aside class="notes">
+<p>p5.animS is a small library that animates the drawing process of p5.js shapes. Instead of a circle appearing instantly, it progressively draws itself over a number of frames – like watching someone draw it by hand. The API mirrors the standard p5.js shape functions, so it’s very easy to pick up. You just add an ID (to track the animation) and a duration (in frames).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Animates the <strong>drawing process</strong> of p5.js shapes</li>
+<li>Shapes progressively draw themselves over time</li>
+<li>Like watching someone draw them by hand</li>
+<li>Same function names as p5.js, with two extra parameters</li>
+<li><a href="https://github.com/wixette/p5.animS">github.com/wixette/p5.animS</a></li>
+</ul>
+</section>
+<section id="including-p5.anims" class="slide level2">
+<h2>Including p5.animS</h2>
+<p>Download into your project folder (preferred):</p>
+<ul>
+<li><a href="https://cdn.jsdelivr.net/npm/p5.anims@0.0.7/build/p5.anims.min.js">p5.anims.min.js</a></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb12-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"p5.anims.min.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or load from the web:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb13-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/npm/p5.anims@0.0.7/build/p5.anims.min.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="animated-circle" class="slide level2">
+<h2>Animated circle</h2>
+<aside class="notes">
+<p>The simplest example: an animated circle. The first parameter is a unique ID string – this lets p5.animS track the animation state across draw() calls. The second parameter is the duration in frames. The rest of the parameters are the same as the regular p5.js circle() function. Click the mouse to replay the animation with animS.reset().</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource javascript number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb14-1"><a href=""></a><span class="kw">function</span> <span class="fu">draw</span>() {</span>
+<span id="cb14-2"><a href=""></a>  <span class="fu">background</span>(<span class="dv">220</span>)<span class="op">;</span></span>
+<span id="cb14-3"><a href=""></a><span class="co">// animS.circle(id, duration, x, y, diameter)</span></span>
+<span id="cb14-4"><a href=""></a>  animS<span class="op">.</span><span class="fu">circle</span>(<span class="st">'c1'</span><span class="op">,</span> <span class="dv">60</span><span class="op">,</span> <span class="dv">300</span><span class="op">,</span> <span class="dv">200</span><span class="op">,</span> <span class="dv">150</span>)<span class="op">;</span></span>
+<span id="cb14-5"><a href=""></a>}</span>
+<span id="cb14-6"><a href=""></a></span>
+<span id="cb14-7"><a href=""></a><span class="kw">function</span> <span class="fu">mouseClicked</span>() {</span>
+<span id="cb14-8"><a href=""></a>  animS<span class="op">.</span><span class="fu">reset</span>()<span class="op">;</span>  <span class="co">// replay all animations</span></span>
+<span id="cb14-9"><a href=""></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>First parameter: a <strong>unique ID</strong> (any string)</li>
+<li>Second parameter: <strong>duration</strong> in frames</li>
+<li>Rest: same as regular <code>circle()</code></li>
+</ul>
+</section>
+<section id="multiple-animated-shapes" class="slide level2">
+<h2>Multiple animated shapes</h2>
+<aside class="notes">
+<p>You can animate multiple shapes at once – each one needs its own unique ID. They all start animating from the first frame, so you see them all drawing simultaneously. The library supports all the basic p5.js shapes: circle, ellipse, rect, line, triangle, arc, and more.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1004_anims_shapes.js&amp;libs=https%3A%2F%2Fcdn.jsdelivr.net%2Fnpm%2Fp5.anims%400.0.7%2Fbuild%2Fp5.anims.min.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="available-shapes" class="slide level2">
+<h2>Available shapes</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Standard p5.js</th>
+<th>p5.animS equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>circle(x, y, d)</code></td>
+<td><code>animS.circle(id, dur, x, y, d)</code></td>
+</tr>
+<tr class="even">
+<td><code>ellipse(x, y, w, h)</code></td>
+<td><code>animS.ellipse(id, dur, x, y, w, h)</code></td>
+</tr>
+<tr class="odd">
+<td><code>rect(x, y, w, h)</code></td>
+<td><code>animS.rect(id, dur, x, y, w, h)</code></td>
+</tr>
+<tr class="even">
+<td><code>line(x1, y1, x2, y2)</code></td>
+<td><code>animS.line(id, dur, x1, y1, x2, y2)</code></td>
+</tr>
+<tr class="odd">
+<td><code>triangle(...)</code></td>
+<td><code>animS.triangle(id, dur, ...)</code></td>
+</tr>
+<tr class="even">
+<td><code>arc(...)</code></td>
+<td><code>animS.arc(id, dur, ...)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Every shape just needs an <strong>id</strong> and <strong>duration</strong> added!</p>
+</section>
+<section id="what-can-you-make-3" class="slide level2">
+<h2>What can you make?</h2>
+<ul>
+<li class="fragment"><strong>Animated infographics</strong> – charts that draw themselves</li>
+<li class="fragment"><strong>Storytelling sketches</strong> – reveal elements over time</li>
+<li class="fragment"><strong>Logo animations</strong> – shapes assembling into a design</li>
+<li class="fragment"><strong>Whiteboard effects</strong> – like someone is drawing live</li>
+</ul>
+<p>Learn more: <a href="https://wixette.github.io/p5.animS/">wixette.github.io/p5.animS</a></p>
+</section></section>
+<section>
+<section id="hand-drawn-visuals" class="title-slide slide level1 center">
+<h1>Hand-Drawn Visuals</h1>
+
+</section>
+<section id="section-9" class="slide level2" data-background-image="media/sketch_1.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="section-10" class="slide level2" data-background-image="media/sketch_2.jpg" data-background-size="cover">
+<h2></h2>
+</section>
+<section id="why-sketchy-visuals" class="slide level2">
+<h2>Why sketchy visuals?</h2>
+<aside class="notes">
+<p>There’s something charming about hand-drawn visuals. They feel personal, approachable, and human. From sketch notes to illustrated infographics, the imperfect quality of pen on paper has a warmth that clean digital shapes sometimes lack. What if you could give your p5.js sketches that same feeling?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Hand-drawn visuals feel <strong>personal</strong> and approachable</li>
+<li>They add <strong>character</strong> to data visualisations and graphics</li>
+<li>Transforms any sketch into something that looks hand-made</li>
+</ul>
+</section>
+<section id="what-is-p5.scribble" class="slide level2">
+<h2>What is p5.scribble?</h2>
+<aside class="notes">
+<p>p5.scribble replaces your standard p5.js shapes with hand-drawn, wobbly versions. The effect is like someone drew your sketch with a pen on paper. It’s incredibly easy to use – you just swap your drawing function names. The roughness property controls how wobbly the lines are. This is a great way to give your project a distinctive, organic feel.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>Replaces standard shapes with <strong>hand-drawn</strong> versions</li>
+<li>Looks like pen on paper</li>
+<li>Just swap <code>rect()</code> for <code>scribbleRect()</code></li>
+<li><a href="https://github.com/generative-light/p5.scribble.js">github.com/generative-light/p5.scribble.js</a></li>
+</ul>
+</section>
+<section id="including-p5.scribble" class="slide level2">
+<h2>Including p5.scribble</h2>
+<p>Download into your project folder (preferred):</p>
+<ul>
+<li><a href="https://cdn.jsdelivr.net/gh/generative-light/p5.scribble.js/p5.scribble.js">p5.scribble.js</a></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb15-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"p5.scribble.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or load from the web:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb16-1"><a href=""></a><span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://cdn.jsdelivr.net/gh/generative-light/p5.scribble.js/p5.scribble.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="basic-usage" class="slide level2">
+<h2>Basic usage</h2>
+<aside class="notes">
+<p>To use p5.scribble, you create a Scribble object and then call its drawing methods instead of the standard p5.js ones. The roughness property controls how wobbly the lines are – higher values mean more hand-drawn. The bowing property controls how curved the lines are. The method parameters are the same as p5.js, so it’s easy to convert existing code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1005_scribble_shapes.js&amp;libs=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fgenerative-light%2Fp5.scribble.js%2Fp5.scribble.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="sketchy-bar-chart" class="slide level2">
+<h2>Sketchy bar chart</h2>
+<aside class="notes">
+<p>Here’s a practical example: a hand-drawn bar chart. This takes the data visualisation techniques from the previous lecture and gives them a completely different visual character. The data is the same, but the hand-drawn style makes it feel more personal and approachable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+    <div class="p5-frame">
+      <iframe src="https://raw.githack.com/Sipondo/p5micro/9046a949140c497506db0e0464f51c853902fff6/p5micro.html?src=https%3A%2F%2Fraw.githubusercontent.com%2FSipondo%2Fcreative-programming-2026%2Frefs%2Fheads%2Fmain%2Flecture_10%2Fcode%2F1006_scribble_barchart.js&amp;libs=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fgenerative-light%2Fp5.scribble.js%2Fp5.scribble.js" title="P5.js Applet"></iframe>
+    </div>
+    <style>
+    /* Make the slide a flex container */
+    .reveal .slide {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    /* Wrapper around the iframe */
+    .p5-frame {
+      flex: 1;        /* take remaining vertical space */
+      min-height: 0;  /* allow flex shrinking */
+      display: flex;  /* let iframe fill container */
+    }
+
+    /* The iframe itself */
+    .p5-frame iframe {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    </style>
+    
+</section>
+<section id="what-can-you-make-4" class="slide level2">
+<h2>What can you make?</h2>
+<ul>
+<li class="fragment"><strong>Sketchy data visualisations</strong> – charts with personality</li>
+<li class="fragment"><strong>Comic-style graphics</strong> – panels, speech bubbles, characters</li>
+<li class="fragment"><strong>Prototype aesthetics</strong> – wireframe / napkin-sketch look</li>
+<li class="fragment"><strong>Mixed media</strong> – combine scribble shapes with photos or clean text</li>
+</ul>
+</section></section>
+<section>
+<section id="wrapping-up" class="title-slide slide level1 center">
+<h1>Wrapping up</h1>
+
+</section>
+<section id="choosing-a-library" class="slide level2">
+<h2>Choosing a library</h2>
+<aside class="notes">
+<p>You don’t have to use any of these libraries for your project – they’re just tools that might help you. Think about what kind of project excites you and pick the library that fits. Or combine them! You could make a physics game with p5play that uses hand tracking from ml5.js, or a generative poem with RiTa that’s drawn in a sketchy style with p5.scribble.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Library</th>
+<th>Best for</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>p5play</strong></td>
+<td>Games, physics, interactive art</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td><strong>ml5.js</strong></td>
+<td>Webcam, body/hand tracking</td>
+<td>Low-Medium</td>
+</tr>
+<tr class="odd">
+<td><strong>RiTa.js</strong></td>
+<td>Generative text, poetry</td>
+<td>Low</td>
+</tr>
+<tr class="even">
+<td><strong>p5.animS</strong></td>
+<td>Animated drawing effects</td>
+<td>Very low</td>
+</tr>
+<tr class="odd">
+<td><strong>p5.scribble</strong></td>
+<td>Hand-drawn visual style</td>
+<td>Very low</td>
+</tr>
+</tbody>
+</table>
+<p>You don’t have to use any!</p>
+</section>
+<section id="finding-more-libraries" class="slide level2">
+<h2>Finding more libraries</h2>
+<aside class="notes">
+<p>We only covered five libraries today, but there are many more. The official p5.js libraries page is the best starting point – it lists dozens of community-made libraries for everything from 3D graphics to GUI controls to particle systems. Each one has a link to its documentation and source code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li>The official list: <a href="https://p5js.org/libraries/">p5js.org/libraries</a></li>
+<li>Covers: GUI, particle systems, networking, accessibility, and more</li>
+<li>Each entry links to documentation and examples</li>
+<li>If you can think of it, there’s probably a library for it</li>
+</ul>
+</section>
+<section id="learning-and-inspiration" class="slide level2">
+<h2>Learning and inspiration</h2>
+<aside class="notes">
+<p>The Coding Train by Daniel Shiffman is an incredible resource – he has video tutorials for p5.js, ml5.js, and many other creative coding topics. OpenProcessing is a community of creative coders sharing their sketches – you can view the source code of anything you see, which is a great way to learn new techniques. The p5.js examples page is also a good place to explore what’s possible with just p5.js itself.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<ul>
+<li><a href="https://thecodingtrain.com/">The Coding Train</a> – video tutorials for p5.js, ml5.js, and more</li>
+<li><a href="https://openprocessing.org/">OpenProcessing</a> – community sketches with viewable source code</li>
+<li><a href="https://p5js.org/examples/">p5js.org/examples</a> – official p5.js examples</li>
+<li><a href="http://www.generative-gestaltung.de/">Generative Design</a> – book with free online examples</li>
+</ul>
+</section>
+<section id="beyond-p5.js" class="slide level2">
+<h2>Beyond p5.js</h2>
+<aside class="notes">
+<p>p5.js is a great starting point, but it’s not the only creative coding tool out there. If you get into creative coding, you might also want to explore three.js for 3D web graphics, Tone.js for advanced audio synthesis, matter.js for another physics engine, or D3.js for data visualisation. These are all JavaScript libraries that work in the browser, just like p5.js.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<p>If you want to go further <strong>after this course</strong>:</p>
+<ul>
+<li><a href="https://threejs.org/">three.js</a> – 3D graphics in the browser</li>
+<li><a href="https://tonejs.github.io/">Tone.js</a> – advanced audio synthesis</li>
+<li><a href="https://brm.io/matter-js/">matter.js</a> – another physics engine</li>
+<li><a href="https://d3js.org/">D3.js</a> – powerful data visualisation</li>
+<li><a href="https://cables.gl/">Cables.gl</a> – visual programming for WebGL</li>
+</ul>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<ul>
+<li>Thank you for joining this course!</li>
+<li>Hopefully the lectures were useful - it was a first time this course setup as well!</li>
+<li>Good luck with your projects!</li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="media/itu.jpg" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Creative Programming 2026 Lecture 10 - Ties Robroek - IT University of Copenhagen</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture_10_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture_10_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture_10_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture_10_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 8.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+      let placeholder = document.querySelector("div#toc");
+      let toc = document.querySelector("#toc-nav");
+      let toc_slide = document.querySelector("section#TOC");
+      
+      let toc_clone = toc.cloneNode(true);
+      placeholder.replaceWith(toc_clone);
+      
+      toc_slide.remove();
+    </script>
+    <div class="quarto-notes-button" role="group" aria-label="Slide helpers">
+      <button id="toggle-notes-btn" type="button" aria-controls="notes-panel" aria-expanded="false">Narration</button>
+      </div>
+
+    <div id="notes-panel" aria-live="polite" aria-label="Narration" hidden="">
+      <div class="notes-header">Narrative Notes</div>
+      <div id="notes-content"></div>
+    </div>
+
+    <script>
+    (function(){
+      function setRevealViewportHeight(px){
+        var h = (typeof px === 'number') ? px : 0;
+        document.documentElement.style.setProperty('--quarto-notes-height', h + 'px');
+      }
+
+      function getNotesHTML(slide){
+        if (!slide) return '';
+        // Reveal transforms ::: {.notes} to <aside class="notes"> or uses data-notes
+        var aside = slide.querySelector('aside.notes');
+        if (aside) return aside.innerHTML || aside.textContent || '';
+        var dataNotes = slide.getAttribute('data-notes');
+        return dataNotes || '';
+      }
+
+      function updateNotes(){
+        try {
+          var content = document.getElementById('notes-content');
+          var btn = document.getElementById('toggle-notes-btn');
+          if (!content) return;
+          var slide = (window.Reveal && typeof window.Reveal.getCurrentSlide === 'function')
+            ? window.Reveal.getCurrentSlide() : null;
+          var html = getNotesHTML(slide);
+          var hasNotes = html && html.trim();
+          
+          content.innerHTML = hasNotes ? html : '<em>No notes for this slide.</em>';
+          
+          // Add/remove highlight based on whether notes exist
+          if (btn) {
+            if (hasNotes) {
+              btn.classList.add('has-notes');
+            } else {
+              btn.classList.remove('has-notes');
+            }
+          }
+        } catch (e) {
+          // Ignore
+        }
+      }
+
+      function togglePanel(){
+        var panel = document.getElementById('notes-panel');
+        var btn = document.getElementById('toggle-notes-btn');
+        if (!panel || !btn) return;
+        var isHidden = panel.hasAttribute('hidden');
+        if (isHidden) {
+          panel.removeAttribute('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.textContent = 'Hide';
+          updateNotes();
+          requestAnimationFrame(function(){
+            var height = panel.offsetHeight || 0;
+            setRevealViewportHeight(height);
+            if (window.Reveal && typeof window.Reveal.layout === 'function') {
+              window.Reveal.layout();
+            }
+          });
+        } else {
+          panel.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Narration';
+          setRevealViewportHeight(0);
+          if (window.Reveal && typeof window.Reveal.layout === 'function') {
+            window.Reveal.layout();
+          }
+        }
+      }
+
+      function init(){
+        var btn = document.getElementById('toggle-notes-btn');
+        if (btn) {
+          btn.addEventListener('click', function(ev){ ev.preventDefault(); togglePanel(); });
+          btn.title = 'Show or hide narration for the current slide';
+        }
+        // Update notes when the deck is ready and on slide changes
+        if (window.Reveal && typeof window.Reveal.on === 'function'){
+          window.Reveal.on('ready', updateNotes);
+          window.Reveal.on('slidechanged', updateNotes);
+        } else {
+          // Fallback: update once after DOM ready
+          updateNotes();
+        }
+
+        // Keep reveal viewport adjusted on resize when panel is visible
+        window.addEventListener('resize', function(){
+          var panel = document.getElementById('notes-panel');
+          if (panel && !panel.hasAttribute('hidden')){
+            setRevealViewportHeight(panel.offsetHeight || 0);
+            if (window.Reveal && typeof window.Reveal.layout === 'function') {
+              window.Reveal.layout();
+            }
+          }
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+    </script>
+
+    <style>
+    .quarto-notes-button { 
+      position: fixed; 
+      right: 16px;
+      bottom: calc(max(16px + var(--quarto-notes-height, 0px), 10%)); 
+      z-index: 9999; 
+    }
+    .quarto-notes-button button {
+      padding: 8px 12px;
+      font-family: var(--r-main-font);
+      font-weight: var(--r-main-font-weight);
+      font-size: calc(var(--r-main-font-size)*0.7);
+      border-radius: 6px;
+      border: 1px solid #999;
+      background: #ffffff;
+      color: #222;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .quarto-notes-button button:hover { background: #f3f3f3; }
+
+    .quarto-notes-button button.has-notes {
+      background: #fffacd;
+      border-color: #ffeb3b;
+      font-weight: 600;
+      box-shadow: 0 0 0 2px rgba(255, 235, 59, 0.3);
+    }
+
+    .quarto-notes-button button.has-notes:hover {
+      background: #fff9c4;
+    }
+
+    #notes-panel {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      max-height: 40vh;
+      background: rgba(255,255,255);
+      border-top: 1px solid #ddd;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.12);
+      z-index: 9998;
+      padding: 10px 16px;
+      overflow: auto;
+      font-family: var(--r-main-font);
+      font-weight: var(--r-main-font-weight);
+      font-size: calc(var(--r-main-font-size) * 0.7);
+      line-height: normal;
+    }
+    #notes-panel .notes-header{
+      font-family: var(--r-main-font);
+      font-weight: var(--r-main-font-weight);
+      font-size: calc(var(--r-main-font-size) * 1.0);
+      color: #555;
+      margin-bottom: 6px;
+      line-height: normal;
+    }
+    /* #notes-content { font-size: 1.05rem; line-height: 1.65; } */
+
+    /* Reduce Reveal viewport height when notes are visible */
+    /* .reveal,
+    .reveal-viewport {
+      height: calc(100vh - var(--quarto-notes-height, 0px)) !important;
+    } */
+
+    @media print { 
+      .quarto-notes-button, #notes-panel { display: none; }
+    }
+    </style>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
