@@ -3,7 +3,7 @@ let scribble;
 function setup() {
   createCanvas(600, 400);
   background(255);
-  scribble = new Scribble();
+  scribble = new Scribble(this);
 
   scribble.roughness = 2; // wobbly lines
   scribble.bowing = 1; // curved lines

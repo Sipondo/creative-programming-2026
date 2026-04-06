@@ -5,7 +5,7 @@ let labels = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 function setup() {
   createCanvas(600, 400);
   background(255);
-  scribble = new Scribble();
+  scribble = new Scribble(this);
   scribble.roughness = 2; // extra wobbly
 
   let barW = 60;
